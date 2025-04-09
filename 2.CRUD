@@ -1,0 +1,219 @@
+
+    CRUD Operations in MongoDB 
+
+CRUD stands for  Create ,  Read ,  Update , and  Delete  operations. These are the fundamental operations performed on the database.
+
+   1. Create / Insert (C) 
+
+ Creating a Database: 
+To use or create a database:
+ 
+use database_name;
+ 
+Example:
+ 
+use scott;  // Switches to the 'scott' database
+ 
+
+ Creating a Collection/Table: 
+You can create a collection explicitly using the following command:
+ 
+db.createCollection("collection_name");
+ 
+Example:
+ 
+db.createCollection("employee");
+ 
+
+ Checking Databases: 
+To show all databases:
+ 
+show databases;  // or show dbs;
+ 
+
+ Checking Collections: 
+To show all collections in the current database:
+ 
+show collections;  // or show tables;
+ 
+
+   2. Read / Retrieve (R) 
+
+ Finding Records (Documents): 
+To find all records in a collection:
+ 
+db.collection_name.find();
+ 
+Example:
+ 
+db.emp.find();  // Retrieves all documents from 'emp' collection
+ 
+
+ Using  find  with Filters and Projections: 
+
+ find({filtercondition},{projection},{optional})
+ 
+You can filter and project data using  find()  by passing a filter condition and a projection.
+-  Filter : Condition to match specific documents.
+-  Projection : Specifies which fields to return in the result.
+
+ 
+db.emp.find({}, { ename: 1, _id: 0 });
+ 
+This will retrieve the  ename  (name) of all employees, excluding the  _id  field.
+
+Example for multiple fields:
+ 
+db.emp.find({}, { ename: 1, sal: 1, _id: 0 });
+ 
+
+   3. Update / Modify (U) 
+
+You can update records using the  updateOne() ,  updateMany() , or  bulkWrite()  methods. Here's an example of  updateOne() :
+
+ 
+db.collection_name.updateOne(
+  { key: "value" },  // Filter condition
+  { $set: { key: "new_value" } }  // Update action
+);
+ 
+For example:
+ 
+db.emp.updateOne(
+  { eid: "jsp123" },  // Find the employee with eid "jsp123"
+  { $set: { salary: 28000 } }  // Update the salary
+);
+ 
+
+   4. Delete / Drop (D) 
+
+ Dropping a Collection: 
+To delete a collection:
+ 
+db.collection_name.drop();
+ 
+Example:
+ 
+db.emp.drop();  // Deletes the 'emp' collection
+ 
+
+ Dropping a Database: 
+
+Before dropping a database, you need to switch to the target database:
+ 
+syntax:
+-------
+use database_name;
+
+db.dropDatabase();
+ 
+Example:
+--------
+use scott;
+
+db.dropDatabase();  // Drops the 'scott' database
+ 
+
+    MongoDB Insert Methods 
+
+   1. Insert One Document ( insertOne() ) 
+You can insert a single document into a collection using  insertOne() :
+ 
+syntax:
+------------
+db.collection_name.insertOne({
+  key: "value",
+  another_key: "another_value"
+});
+ 
+Example:
+----------
+ 
+db.emp.insertOne({
+  eid: "jsp123",
+  ename: "Anmol",
+  salary: 25000,
+  isAvailable: true,
+  designation: "software engineer",
+  skills: ["html", "css", "js"],
+  address: {
+    dno: "5/225",
+    street_name: "Shivaji Nagar",
+    city: "Bangalore",
+    state: "Karnataka",
+    pincode: 560001
+  }
+});
+ 
+
+   2. Insert Multiple Documents ( insertMany() ) 
+To insert multiple documents at once:
+ 
+db.collection_name.insertMany([
+  { key1: "value1", key2: "value2" },
+  { key1: "value3", key2: "value4" }
+]);
+ 
+Example:
+ 
+db.emp.insertMany([{
+  eid: "jsp124",
+  ename: "Amruta",
+  salary: 25000,
+  isAvailable: true,
+  designation: "Software Engineer",
+  skills: ["html", "css", "js"],
+  address: {
+    dno: "5/225",
+    street_name: "Shivaji Nagar",
+    city: "Bangalore",
+    state: "Karnataka",
+    pincode: 560001
+  }
+}, {
+  eid: "jsp125",
+  ename: "Atul",
+  salary: 20000,
+  isAvailable: false,
+  designation: "Test Engineer",
+  skills: ["manual testing", "selenium testing"],
+  address: {
+    dno: "7/225",
+    street_name: "Town Hall",
+    city: "Bangalore",
+    state: "Karnataka",
+    pincode: 560001
+  }
+}]);
+ 
+
+
+    MongoDB Queries with Projections and Filters 
+
+   Projection 
+   -----------
+Projection specifies which fields you want to return from a query.
+ It helps in reducing the amount of data returned.
+
+Example:
+ 
+db.emp.find({}, { ename: 1, _id: 0 });
+ 
+This will only return the  ename  (employee name) and exclude the  _id  field from the result.
+
+
+   Assignment Queries  :
+
+1.  Display all details from the  employee  table: 
+2.  Get the name and manager of all employees: 
+3.  Get the name and salary of all employees: 
+4.  Get the name and commission of all employees: 
+5.  Get employee ID and department number for all employees: 
+6.  Get employee name and hire date for all employees: 
+7.  Get name and designation for all employees: 
+8.  Get name, job, and salary for all employees: 
+9.  Get department names from the department table: 
+10.  Get department name and location from the department table: 
+     
+
+     
