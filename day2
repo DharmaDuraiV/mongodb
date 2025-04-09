@@ -1,0 +1,67 @@
+// mobiles
+
+
+
+db.createCollection("mobiles");
+
+let mobiles={
+    name:"oppo",
+    price:29999,
+    color:["red","green","black"],
+    model:"Iphone",
+    rom :"1tb",
+    ram : "64gb"
+}
+
+// insert, insertOne ,insertMany
+
+db.mobiles.insertOne({
+    name:"vivo",
+    price:320000,
+    color:["gold","blue","black"],
+    model:"android",
+    rom :"128gb",
+    ram : "8gb"
+})
+
+// to display the data from the mongodb
+// find,findOne
+
+db.collection_name.find();
+
+db.mobiles.find()
+
+//  insertMany([])
+
+db.mobiles.insertMany([
+    {
+    name:"samsung",
+    price:10000,
+    color:["blue","black"],
+    model:"android",
+    rom :"128gb",
+    ram : "8gb"
+},
+{name:"oneplus",
+    price:50000,
+    color:["silver","black"],
+    model:"android",
+    rom :"254gb",
+    ram : "8gb"},
+    
+{name:"poco",
+        price:1,
+        rom :"128gb",
+        ram : "8gb"}
+    ])
+
+
+    // find({filet-cond},{projection},{optional})
+
+    // how to display all the mobiles name 
+
+    db.mobiles.find({},{name:true,_id:false})
+
+    // how to display all the mobiles name ,price ,model
+
+    db.mobiles.find({},{name:1,price:1,model:1,_id:0})
