@@ -1,0 +1,204 @@
+
+
+   1. Variables in JavaScript 
+
+ #   var  
+-  Declaration :  var  is used to declare a variable.
+-  Initialization : A variable declared with  var  can be initialized with a value.
+-  Re-declaration : You can re-declare the same variable multiple times using  var  (not recommended in modern JavaScript due to potential issues with scope).
+-  Example :
+     javascript
+  var stu_name = "Aswhini";
+  console.log(stu_name);  // Output: Aswhini
+
+  var a;
+  a = 10;
+  console.log(a);  // Output: 10
+  a = "atul";
+  console.log(a);  // Output: atul
+  var a = "deepan";  // re-declaration
+  console.log(a);  // Output: deepan
+     
+
+ #   let  
+-  Declaration :  let  is used to declare a variable with block-level scope.
+-  Re-declaration : You cannot redeclare a variable declared with  let  in the same scope. 
+-  Re-initialization : You can reassign a value to a  let  variable.
+-  Example :
+     javascript
+  let a;
+  a = 10;
+  console.log(a);  // Output: 10
+  a = "shashi";
+  console.log(a);  // Output: shashi
+  // let a = "anmol";  // Error: Cannot redeclare block-scoped variable  a 
+     
+
+ #   const  
+-  Declaration :  const  is used to declare constants that cannot be reassigned.
+-  Re-assignment : You cannot reassign a value to a constant.
+-  Example :
+     javascript
+  const b = 10;
+  // b = "atul";  // Error: Assignment to constant variable.
+  console.log(b);  // Output: 10
+     
+
+---
+
+   2. Data Types in JavaScript 
+
+ #  Primitive Data Types 
+These include basic data types like numbers, strings, booleans, null, and undefined.
+
+1.  String 
+   - A string is a series of characters enclosed in single, double, or backtick quotes.
+   -  Example :
+        javascript
+     var sname = "Dinesh kumar";
+     console.log(sname);  // Output: Dinesh kumar
+     console.log(typeof sname);  // Output: string
+        
+
+2.  Number 
+   - Numbers can be integers or floating-point values.
+   -  Example :
+        javascript
+     let a = 10;
+     console.log(a);  // Output: 10
+     console.log(typeof a);  // Output: number
+     let b = 10.18;
+     console.log(b);  // Output: 10.18
+     console.log(typeof b);  // Output: number
+        
+
+3.  Boolean 
+   - Boolean data types store  true  or  false .
+   -  Example :
+        javascript
+     let isAvailable = true;
+     console.log(isAvailable);  // Output: true
+     console.log(typeof isAvailable);  // Output: boolean
+     let a = false;
+     console.log(a);  // Output: false
+     console.log(typeof a);  // Output: boolean
+        
+
+4.  Undefined 
+   - A variable that is declared but not initialized is  undefined .
+   -  Example :
+        javascript
+     let a;
+     console.log(a);  // Output: undefined
+        
+
+5.  Null 
+   - Represents the intentional absence of any value.
+   -  Example :
+        javascript
+     let b = null;
+     console.log(b);  // Output: null
+     console.log(typeof b);  // Output: object (this is a known quirk in JavaScript)
+        
+
+---
+
+ #  Non-Primitive Data Types 
+These data types include more complex types like arrays, objects, and functions.
+
+1.  Array 
+   - Arrays store multiple values in a single variable. Arrays are indexed collections.
+   -  Example :
+        javascript
+     let skills = ["html", "css", "js", "react", "mongodb"];
+     console.log(skills);  // Output: ["html", "css", "js", "react", "mongodb"]
+     console.log(skills[0]);  // Output: html
+     console.log(skills[3]);  // Output: react
+
+     // Nested array
+     let skills = ["html", "css", "js", ["java", "springboot", "hibernate"], "react", "mongodb"];
+     console.log(skills[3][2]);  // Output: hibernate
+        
+
+2.  Object 
+   - Objects are key-value pairs where each key is a string (or symbol), and each value can be any data type.
+   -  Example :
+        javascript
+     let employee = {
+       eid: "jsp123",
+       ename: "Anmol",
+       salary: 25000,
+       isAvailable: true,
+       designation: "Software Engineer",
+       skills: ["html", "css", "js"],
+       address: {
+         dno: "5/225",
+         street_name: "Shivaji Nagar",
+         city: "Bangalore",
+         state: "Karnataka",
+         pincode: 560001
+       }
+     };
+
+     console.log(employee.ename);  // Output: Anmol
+     console.log(employee.skills[0]);  // Output: html
+     console.log(employee.address.city);  // Output: Bangalore
+        
+
+3.  Array of Objects 
+   - You can also create an array of objects, which is useful when dealing with multiple similar objects.
+   -  Example :
+        javascript
+     let employees = [
+       {
+         eid: "jsp124",
+         ename: "Amruta",
+         salary: 25000,
+         isAvailable: true,
+         designation: "Software Engineer",
+         skills: ["html", "css", "js"],
+         address: {
+           dno: "5/225",
+           street_name: "Shivaji Nagar",
+           city: "Bangalore",
+           state: "Karnataka",
+           pincode: 560001
+         }
+       },
+       {
+         eid: "jsp125",
+         ename: "Atul",
+         salary: 20000,
+         isAvailable: false,
+         designation: "Test Engineer",
+         skills: ["Manual Testing", "Selenium Testing"],
+         address: {
+           dno: "7/225",
+           street_name: "Town Hall",
+           city: "Bangalore",
+           state: "Karnataka",
+           pincode: 560001
+         }
+       }
+     ];
+
+     console.log(employees[0].ename);  // Output: Amruta
+     console.log(employees[1].address.city);  // Output: Bangalore
+        
+
+---
+
+   3.  typeof  Operator 
+The  typeof  operator is used to check the type of a variable or expression.
+
+-  Example :
+     javascript
+  let a = 10;
+  console.log(typeof a);  // Output: number
+  let sname = "Dinesh kumar";
+  console.log(typeof sname);  // Output: string
+  let isAvailable = true;
+  
+  console.log(typeof isAvailable);  // Output: boolean
+     
+
