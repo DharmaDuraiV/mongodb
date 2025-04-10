@@ -1,0 +1,93 @@
+Alias Name :
+----------
+
+  it used to give alternative name to the field in result document
+   
+   syntax:
+
+	{alias_name:"$values"}
+
+ notes :
+        when we are using the field name as values the use "$filedname"
+
+//? sal -----> salary
+//? comm -----> commission
+//? empno------> employeenumber
+
+      example:
+      ----------
+       db.emp.find({},{salalry:"$sal",_id:0});
+
+
+filter Condition :
+------------------
+
+filter condition is used to filter the documents.
+  
+syntax:  
+	db.collection_name.find({filtercondition},{projection},{optional});
+
+notes :
+
+1.filter condition is used to filter the documents
+
+2. The filter condition is evaluated for each document in the collection (like row-by-row in SQL).
+
+3. We can write filter conditions inside the `find()` method to match specific documents.
+
+4. We can also write multiple filter conditions using logical operators 
+
+example :
+
+1.waqtd name and job of all the employees :
+
+sql :
+ 
+  select ename ,job 
+  from emp;
+
+mongodb:
+  
+  db.emp.find({},{ename:1,job:1,_id:0});
+
+2.waqtd name and salary,job of all the employees who is working as manager
+
+sql:
+
+ select ename ,sal , job 
+ from emp
+ where job='MANAGER' ;
+
+MONGODB: 
+
+  db.emp.find({job:'manager'},{ename:1,sal:1,job:1});
+
+3. waqtd name and salary,deptno of all the employees who is working as deptno 10
+
+sql : 
+   
+    select ename ,sal ,deptno 
+    from emp
+    where deptno =10;
+
+mongodb:
+
+    db.emp.find({deptno:10},{ename:1,sal:1,deptno:1,_id:0});
+
+Assignments :
+------------
+
+1.WAQTD THE SALARY OF THE EMPLOYEE WHOS NAME IS  SMITH
+2.WAQTD NAME OF THE EMPLOYEES WORKING AS CLERK
+3.WAQTD SALARY OF THE EMPLOYEES WHO ARE WORKING AS SALESMAN
+4.WAQTD DETAILS OF THE EMP WHO EARNS  2000
+5.WAQTD DETAILS OF THE EMP WHOS NAME IS JONES
+6.WAQTD DETAILS OF EMPLOYEES WORKING AS AN N ANALYST
+7.WAQTD NAME AND SAL ALONG WITH HIS ANNUAL SALARY IF THE  SALARY IS 1250
+8.WAQTD EMPNO OF THE EMPLOYEES WHO ARE WORKING IN DEPT    30 
+9.WAQTD DETAILS OF THE EMPLOYEES WORKING AS MANAGER
+10.WAQTD NAME AND SALARY GIVEN TO AN EMPLOYEE IF EMPLOYEE EARNS A COMMISSION OF RUPEES 1400 
+
+
+
+
