@@ -179,6 +179,22 @@ db.emp.find({ deptno: { $ne: 30 } }, { ename: 1, deptno: 1, _id: 0 });
 
 db.emp.find({ deptno: { $not: { $eq: 30 } } }, { ename: 1, deptno: 1, _id: 0 });
 
+
+// WAQTD NAMES AND sal ,DEPTNO  OF EMPS who is earning more the 1500 WORKING  IN DEPT 10 OR 30 ;
+
+db.emp.find(
+{$and:[
+      {sal :{$gt:1500}},
+      {$or:[
+           {deptno:10},
+           {deptno:30}
+            ]
+      }
+     ]
+},{ename:1,sal:1,deptno:1,_id:0}) ;
+
+
+
 // LOGICAL OPERATORS:
 // ————————————————
 // 1.WAQTD DETAILS OF THE EMPLOYEES WORKING AS CLERK AND EARNING LESS THAN 1500
