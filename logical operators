@@ -1,0 +1,193 @@
+//!------comparison operators
+//?      $gt , $lt , $gte  ,  $lte , $eq , $ne ,$in , $nin
+//todo   -----------$gt ---> greater than
+//?    syntax:      {filed_name:{$gt:value}}
+db.emp.find({ sal: { $gt: 2000 } }, { ename: 1, sal: 1, _id: 0 });
+//todo   -----------$gte ---> greater than
+//?    syntax:      {filed_name:{$gte:value}}
+db.emp.find({ sal: { $gte: 2001 } }, { ename: 1, sal: 1, _id: 0 });
+//todo   -----------$lt ---> lesser than equal
+//?    syntax:      {filed_name:{$lt:value}}
+//todo   -----------$lte ---> lesser than equal too
+//?    syntax:      {filed_name:{$lte:value}}
+//todo   -----------$eq ---> equal too
+//?    syntax:      {filed_name:{$eq:value}}
+//todo   -----------$ne ---> not equal too
+//?    syntax:      {filed_name:{$ne:value}}
+
+//!  waqtd name and salary of all the employees who is earning more than 2000
+
+// select ename,sal
+// from emp
+// where sal >2000;      or where sal >= 2001 ;
+//?   find
+// db.emp.find({sal>2000},{ename:1,sal:1,_id:0})  //? --- error
+
+db.emp.find({ sal: { $gt: 2000 } }, { ename: 1, sal: 1, _id: 0 });
+
+//!  waqtd name and salary of all the employees who is earning less than 1500
+
+db.emp.find({ sal: { $lt: 1500 } }, { ename: 1, sal: 1, _id: 0 });
+
+//!  waqtd name and job of all the employees who is working as manager
+
+db.emp.find({ job: { $eq: "manager" } }, { ename: 1, job: 1, _id: 0 });
+
+//!  waqtd name and job  of all the employees except deptno 30
+
+db.emp.find({ deptno: { $ne: 30 } }, { ename: 1, job: 1, _id: 0 });
+
+//?  date ---> new Date("value");
+
+new Date("yyyy-mm-dd");
+
+//?   yyyy---->2024
+//?   mm----> number in months --> 03
+//?   dd---> date ----> 31
+
+//? waqtd name and hiredate of the emp's who is hired on 01-MAY-81
+
+db.emp.find(
+  { hiredate: { $eq: new Date("1981-05-01") } },
+  { ename: 1, hiredate: 1, _id: 0 }
+);
+
+// WAQTD EMPNO OF EMPLOYEES HIRED BEFORE THE YEAR 87
+
+
+db.emp.find(
+    { hiredate: { $lt: new Date("1987-01-01") } },
+    { empno: 1, _id: 0 }
+  );
+
+//   or
+
+  db.empl.find(
+    { hiredate: { $lte: new Date("1986-12-31") } },
+    { empno: 1, _id: 0 }
+  );
+  
+// WAQTD DETAILS OF THE EMP WHO WAS HIRED AFTER 01-JAN-81
+
+  db.empl.find(
+    { hiredate: { $gt: new Date("1981-01-01") } }
+  );
+  
+//   or
+db.emp.find(
+    { hiredate: { $gte: new Date("1981-01-02") } }
+  );
+
+//?  waqtd name and hiredate of all the employees if the employee is hired after 1986
+
+db.emp.find(
+    { hiredate: { $gt: new Date("1986-12-31") } },
+    { ename:1,hiredate: 1, _id: 0 }
+  );
+//  or
+  db.emp.find(
+    { hiredate: { $gte: new Date("1987-01-01") } },
+    { ename:1,hiredate: 1, _id: 0 }
+  );
+  
+  
+
+//todo       logical operator
+
+//?     $and , $or ,$not , $nor
+
+//!     $and
+
+//? $add opertator is logical operator
+//? if all the condition are satified then it returns true
+
+//!      i/p               o/p
+//?   a        b            c
+
+//?   T        T            T
+//?   T        F            F
+//?   F        T            F
+//?   F        F            F
+
+//TODO syntax:      $and:[{exp1},{exp2}...{exp_n}]
+
+//? WAQTD DETAILS OF THE EMPLOYEE WHO IS WORKING AS A SALESMAN IN DEPTNO 30
+
+db.emp.find({ $add: [{ job: "salesman" }, { deptno: 30 }] });
+
+//? WAQTD name ,sal and job  OF THE EMPLOYEE WHO IS earning more than 1500 and WORKING AS A SALESMAN
+
+db.emp.find(
+  { $and: [{ sal: { $gt: 1500 } }, { job: "salesman" }] },
+  {
+    ename: 1,
+    sal: 1,
+    job: 1,
+    _id: 0,
+  }
+);
+
+//!     $or
+
+//? $or opertator is logical operator
+//? if any one of the condition are satified then it returns true
+
+//!      i/p               o/p
+//?   a        b            c
+
+//?   T        T            T
+//?   T        F            T
+//?   F        T            T
+//?   F        F            F
+
+//TODO syntax:      $or:[{exp1},{exp2}...{exp_n}]
+
+//todo- waqtd name and deptno of all the employees who is working in deptno 10 or 20
+
+db.emp.find(
+  { $or: [{ deptno: 10 }, { deptno: 20 }] },
+  { ename: 1, deptno: 1, _id: 0 }
+);
+
+//todo-- waqtd name ,job of all the employee who designation is manager or analyst
+
+db.emp.find(
+  { $or: [{ job: "manager" }, { job: "analyst" }] },
+  { ename: 1, job: 1, _id: 0 }
+);
+
+//!     $not
+
+//? $not opertator is logical operator
+//? it is used to give opposite result
+
+//!      i/p               o/p
+//?      a                  b
+
+//?      T                  f
+//?      f                  t
+
+//TODO syntax:      {filed_name :{$not :{comparison_op: value}}}
+
+//! waqtd name and deptno of all the employees except deptno 10
+
+db.emp.find({ deptno: { $not: { $eq: 10 } } }, { ename: 1, deptno: 1, _id: 0 });
+
+//! waqtd name and deptno of all the employees except deptno 30
+
+db.emp.find({ deptno: { $ne: 30 } }, { ename: 1, deptno: 1, _id: 0 });
+
+db.emp.find({ deptno: { $not: { $eq: 30 } } }, { ename: 1, deptno: 1, _id: 0 });
+
+// LOGICAL OPERATORS:
+// ————————————————
+// 1.WAQTD DETAILS OF THE EMPLOYEES WORKING AS CLERK AND EARNING LESS THAN 1500
+// 2.WAQTD NAME AND HIREDATE OF THE EMPLOYEES WORKING AS  MANAGER IN DEPT 30
+// 3.WAQTD DETAILS OF THE EMP ALONG  IF THEY ARE WORKING IN DEPT 30 AS SALESMAN AND THEIR SALARY HAS TO BE GREATER THAN 1400
+// 4.WAQTD ALL THE DETAILS OF THE EMP WORKING IN DEPT 30 OR AS ANALYST
+// 5.WAQTD NAMES OF THE EMPMLOYEES WHOS SALARY IS LESS THAN 1100 AND THEIR DESIGNATION IS CLERK
+// 6.WAQTD NAME AND SAL AND DEPTNO IF DEPTNO IS 20 EARNING MORE THAN 1100 .
+// 7.WAQTD EMPNO AND NAMES OF THE EMPLOYEES WORKING AS MANAGER IN DEPT 20
+// 8.WAQTD DETAILS OF EMPLOYEES WORKING IN DEPT 20 OR 30
+// 9.WAQTD DETAILS OF EMPLOYEES WORKING AS AN ANALYST IN DEPT  20
+// 10.WAQTD DETAILS OF EMPLOYEE WORKING AS PRESIDENT WITH SALARY OF RUPEES 4000
