@@ -44,11 +44,12 @@ db.emp.find({ ename: { $regex: /.*ll.*/ } }, { ename: 1, job: 1, _id: 0 });
 db.emp.find({ ename: { $regex: /^....$/ } }, { ename: 1, _id: 0 })
 
 //?waqtd name and salary of all the employees whos name exactly 3rd character is"l"
+
 db.emp.find({ ename: { $regex: /^..l.*/ } }, { ename: 1, sal: 1, _id: 0 })
 
+// task :
 //? waqtd name ,job of all the employees whos name start with "t" 
-//? and last but one chacter "e" and the name contain exactly 6 charcters
-//? and 4th letter of the name is "n"
+    and last but one chacter "e" and the name contain exactly 6 charcters  and 4th letter of the name is "n"
 db.emp.find({ ename: { $regex: /^t..ne.$/ } }, { ename: 1, job: 1, _id: 0 })
 
 
