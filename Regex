@@ -1,0 +1,85 @@
+//todo -----------------------$regex-------------------------------
+//? $regex is used to pattern matching 
+//? pattern matching can be achived by some characters
+
+//? name starts with use cap  ^ symbol at first
+//? name end  with use doller $ symbol at end
+//? to find the unkown characters we use .* symbol
+//? to find the exact number of characters . dot symbol
+
+//*----syntax:    {field_name:{$regex:/pattern_matching/}}
+//todo-----example:
+//?---waqtd name of all the employees who's name start with "a"
+
+db.emp.find({ ename: { $regex: /^a.*/ } }, { ename: 1, _id: 0 });
+
+//?---waqtd name of all the employees who's name end with "s"
+
+db.emp.find({ ename: { $regex: /.*s$/ } }, { ename: 1, _id: 0 });
+
+//?---waqtd name of all the employees who's name start with "a" and ends with "s"
+
+db.emp.find({ ename: { $regex: /^a.*s$/ } }, { ename: 1, _id: 0 });
+
+//? waqtd name and salary of all the employees whos name contain character "a"
+
+//!---db.emp.find({ename:{$regex:/a/}},{ename:1,_id:0});  // DONT USE
+
+db.emp.find({ ename: { $regex: /.*a.*/ } }, { ename: 1, _id: 0 });
+
+//? waqtd name and salary of all the employees whos name contain altlest  2 "a"
+
+db.emp.find({ ename: { $regex: /.*a.*a.*/ } }, { ename: 1, sal: 1, _id: 0 });
+
+//? waqtd name and job of all the employees whos desigination contain "man"
+
+db.emp.find({ job: { $regex: /.*man.*/ } }, { ename: 1, job: 1, _id: 0 });
+
+//? waqtd name and job of all the employees who name conatain continious "LL"
+
+db.emp.find({ ename: { $regex: /.*ll.*/ } }, { ename: 1, job: 1, _id: 0 });
+
+//? waqtd name of all the employees who's name conatain exactly 4 characters
+
+db.emp.find({ ename: { $regex: /^....$/ } }, { ename: 1, _id: 0 })
+
+//?waqtd name and salary of all the employees whos name exactly 3rd character is"l"
+db.emp.find({ ename: { $regex: /^..l.*/ } }, { ename: 1, sal: 1, _id: 0 })
+
+//? waqtd name ,job of all the employees whos name start with "t" 
+//? and last but one chacter "e" and the name contain exactly 6 charcters
+//? and 4th letter of the name is "n"
+db.emp.find({ ename: { $regex: /^t..ne.$/ } }, { ename: 1, job: 1, _id: 0 })
+
+
+
+
+//? waqtd name of all the employees whos name start with "a" or "m"
+
+db.emp.find({
+  $or: [
+    { ename: { $regex: /^a.*/ } },
+    { ename: { $regex: /^m.*/ } }
+  ]
+}, { _id: 0, ename: 1 });
+
+db.emp.find({ ename: { $regex: /^(a.*|m.*)/ } }, { ename: 1, _id: 0 })
+
+// 1) LIST ALL THE EMPLOYEES WHOSE COMMISSION IS NULL
+// 2) LIST ALL THE SALESMEN IN DEPT 30
+// 3) LIST ALL THE SALESMEN IN DEPT NUMBER 30 AND HAVING SALARY GREATER THAN 1500
+// 4) LIST ALL THE EMPLOYEES WHOSE NAME STARTS WITH ‘S’ OR ‘A’
+// 5) LIST ALL THE EMPLOYEES EXCEPT THOSE WHO ARE WORKING IN DEPT 10 & 20.
+// 6) LIST THE EMPLOYEES WHOSE NAME DOES NOT START WITH ‘S’
+// 7) LIST ALL THE EMPLOYEES WHO ARE HAVING REPORTING MANAGERS IN DEPT 10
+// 8) LIST ALL THE EMPLOYEES WHOSE COMMISSION IS NULL AND WORKING AS CLERK
+// 9) LIST ALL THE EMPLOYEES WHO DON’T HAVE A REPORTING MANAGER IN DEPTNO 10 OR 30
+// 10)LIST ALL THE SALESMEN IN DEPT 30 WITH SAL MORE THAN 2450
+// 11)LIST ALL THE ANALYST IN DEPT NUMBER 20 AND HAVING SALARY GREATER THAN 2500
+// 12)LIST ALL THE EMPLOYEES WHOSE NAME STARTS WITH ‘M’ OR ‘J’
+// 13)LIST THE EMPLOYEES WHOSE NAME DOES NOT END WITH ‘ES’ OR ‘R’
+// 14)LIST ALL THE EMPLOYEES WHO ARE HAVING REPORTING MANAGERS IN DEPT 10
+// 15)DISPLAY ALL THE EMPLOYEE WHO ARE ‘SALESMAN’S HAVING ‘E’ AS THE LAST BUT ONE CHARACTER IN ENAME BUT SALARY HAVING EXACTLY 4 CHARACTER
+// 16)DISPLAY ALL THE EMPLOYEE WHO ARE JOINED AFTER YEAR 81
+// 17)DISPLAY ALL THE EMPLOYEE WHO ARE JOINED IN sep
+// 18)LIST THE EMPLOYEES WHO ARE NOT WORKING AS MANAGERS AND CLERKS IN DEPT 10 AND 20 WITH A SALARY IN THE RANGE OF 1000 TO 3000.
