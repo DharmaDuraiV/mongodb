@@ -1,0 +1,2979 @@
+
+// hello world
+
+//todo       var ,let ,const
+
+//?   var variable_name =values ;
+
+// Aswhini
+
+// var stu_name = "Aswhini";
+
+// console.log(stu_name);
+
+// var a;  // declare
+// a = 10;  // initilizatation 
+// console.log(a);
+// var a;  // re-declare
+// a = "atul"; // re-initilizatation
+// console.log(a);
+// var a="deepan" ; // redeclare and  re-initilizatation
+// console.log(a);
+
+//?   let variable_name =values ;
+
+// let a;  // declare
+// a = 10;   // initilizatation
+// // let a;   //re -declera is not possible
+// a = "shashi"  // re-initilizatation
+// // let a="anmol" ; // not possible
+// console.log(a);
+
+//?   const variable_name =values ;
+// const b = 10;
+// // b = "atul"; // not possible 
+// console.log(b);
+
+// var a = "aryan";
+
+// console.log(a);
+
+//to check what kind of data
+
+//!---------typeof
+
+// console.log(typeof a);
+
+// const pie = 3.14;
+
+// console.log(pie);
+// console.log(typeof (pie));
+
+/*
+//*       types of datatype
+
+//*       primitive datatype   
+//*       string,number,boolean ,undefined,null
+
+
+//*      non primitive datatype   
+//*    array,object ,function 
+
+*/
+
+//?      primitive datatype   
+//*       string
+
+//?   a string datatype is a series of character like Dinesh kumar
+//?   string are written in quote . we can use single quote '',double quote "",backtick ``
+
+// var sname = "Dinesh kumar";
+
+// console.log(sname);
+
+//wt kind data 
+
+// typeof 
+
+// console.log(typeof (sname));
+
+//!--------Number 
+
+//? In number datatype we can store the numerical values 
+
+// let a = 10;
+// console.log(a);
+// console.log(typeof a);
+// let b = 10.18;
+// console.log(b);
+// console.log(typeof b);
+
+//!-----------boolean 
+
+//? it is used to store the boolean values true ,false
+
+// let isavaliable = true;
+// console.log(isavaliable);
+// console.log(typeof isavaliable);
+// let a = false
+// console.log(a);
+// console.log(typeof a);
+
+//!---- undefined
+
+// let a;
+// console.log(a);
+
+//!------null ;
+
+// let b = null;
+// console.log(b);
+
+// //*      non primitive datatype   
+//*    array,object ,function 
+
+//todo------------Array
+
+//? array it is used to store the multiple values in a single varaibale 
+
+//?----skills--->html,css,js,react,mongodb
+
+// let skills = ["html", "css", "js", "react", "mongodb"];
+
+// //? index      0        1      2     3          4            
+
+// console.log(skills);
+
+//!   []---> array notation 
+// console.log(skills[0]);
+// console.log(skills[3]);
+
+//!   nested array
+
+//!  array returns inside another array we can call it as nested array
+
+
+// let skills = ["html", "css", "js", ["java", "spingboot", "hybernet"], "react", "mongodb"];
+
+// console.log(skills[3][2]);
+
+// let a = [[[[10]]]];
+
+// console.log(a[0][0][0][0]);
+
+//?   object ---- > {}
+
+//?     {key : values}
+
+let employee = {
+  eid: "jsp123",
+  ename: "Anmol",
+  salary: 25000,
+  isavaliable: true,
+  designation: "software engineer",
+  skills: ["html", "css", "js"],
+  address: {
+    dno: "5/225",
+    street_name: "Shivaji nager",
+    city: "Bangalore",
+    state: "karnataka",
+    pincode: 560001
+  }
+}
+
+// // console.log(emp);
+
+// console.log(emp.ename);
+// console.log(emp.designation);
+// console.log(emp.skills[0]);
+// console.log(emp.address.city);
+
+let employees = [{
+
+  eid: "jsp124",
+  ename: "amruta",
+  salary: 25000,
+  isavaliable: true,
+  designation: "software engineer",
+  skills: ["html", "css", "js"],
+  address: {
+    dno: "5/225",
+    street_name: "Shivaji nager",
+    city: "Bangalore",
+    state: "karnataka",
+    pincode: 560001
+
+  }
+}, {
+  eid: "jsp125",
+  ename: "atul",
+  salary: 20000,
+  isavaliable: false,
+  designation: "test engineer",
+  skills: ["manual testing", "selinuim testing"],
+  address: {
+    dno: "7/225",
+    street_name: "town hall",
+    city: "Bangalore",
+    state: "karnataka",
+    pincode: 560001
+
+  }
+}, {
+  eid: "jsp126",
+  ename: "sarita",
+  salary: 30000,
+  isavaliable: true,
+  designation: "software engineer",
+  skills: ["java", "spring boot"],
+
+}]
+
+
+
+
+//todo -----------------CRUD----
+//?    C--> create/insert 
+//?    R--> read/retrive
+//?    u--> update/modify
+//?    d--> delete/drop
+
+
+//!------How to create the database 
+//todo---syntax
+//?---- use database_name ;
+//?--->  scott 
+//?      use scott ;
+//!--- how to check the databases 
+
+//?   show databases (or) show dbs
+
+//!-----how to create the collection/tables 
+
+//todo ----> explict method 
+
+//? syntax:   db.createCollection("collection_name");
+
+//?   collection_name---> employee
+
+db.createCollection("employee");
+
+//!    "new user"
+db.createCollection("new user")
+
+//!--- how to check the tables/collection
+
+//?-- syntax:   show tables (or) show collections
+
+//!-----> how to rename the collection 
+
+//?  employee ---> emp
+
+//todo---> implict method 
+//?  syntax:  
+//? db.collection_name.renameCollection("new_collection_name")
+
+//todo---ex
+//
+db.employee.renameCollection("emp");
+
+//?    new user ---> users 
+//todo explict method 
+
+//? syntax:   
+//?db.getCollection("collection_name").renameCollection("new_collection_name")
+db.getCollection("new user").renameCollection("users");
+
+//!-----how to drop/delete the collection
+
+//todo ---- syntax:
+//?  ------ db.collection_name.drop();
+
+//*   ex:   db.passenger.drop();
+
+
+//!-----how to drop/delete the database
+
+//?--note ----> before drop the database first we need to switch to the db
+//todo ---- syntax:
+//?  ------ db.dropDatabase("database_name");
+//?--- ex:
+//?  ------ db.dropDatabase("scott");
+
+
+//todo ------ how to insert the records in the collection
+
+//!----------insertOne(),insertMany(),bulkWrite()
+
+//*    insertOne();
+
+//? syntax:    db.collection_name.insertOne({key:"value"})
+
+
+let emp = {
+  eid: "jsp123",
+  ename: "Anmol",
+  salary: 25000,
+  isavaliable: true,
+  designation: "software engineer",
+  skills: ["html", "css", "js"],
+  address: {
+    dno: "5/225",
+    street_name: "Shivaji nager",
+    city: "Bangalore",
+    state: "karnataka",
+    pincode: 560001
+  }
+}
+
+//* ex:
+
+db.emp.insertOne({
+  eid: "jsp123",
+  ename: "Anmol",
+  salary: 25000,
+  isavaliable: true,
+  designation: "software engineer",
+  skills: ["html", "css", "js"],
+  address: {
+    dno: "5/225",
+    street_name: "Shivaji nager",
+    city: "Bangalore",
+    state: "karnataka",
+    pincode: 560001
+  }
+});
+
+//*  insertMany()
+
+
+
+//? syntax:      db.collection_name.insertMany([{key:value},{key:value},{key:value}])
+
+db.emp.insertMany([{
+
+  eid: "jsp124",
+  ename: "amruta",
+  salary: 25000,
+  isavaliable: true,
+  designation: "software engineer",
+  skills: ["html", "css", "js"],
+  address: {
+    dno: "5/225",
+    street_name: "Shivaji nager",
+    city: "Bangalore",
+    state: "karnataka",
+    pincode: 560001
+
+  }
+}, {
+  eid: "jsp125",
+  ename: "atul",
+  salary: 20000,
+  isavaliable: false,
+  designation: "test engineer",
+  skills: ["manual testing", "selinuim testing"],
+  address: {
+    dno: "7/225",
+    street_name: "town hall",
+    city: "Bangalore",
+    state: "karnataka",
+    pincode: 560001
+
+  }
+}, {
+  eid: "jsp126",
+  ename: "sarita",
+  salary: 30000,
+  isavaliable: true,
+  designation: "software engineer",
+  skills: ["java", "spring boot"],
+
+}])
+
+
+//todo ------ how to find the records in the collection
+
+//*         find(),findOne()
+
+//?  syntax:    db.collection_name.find();
+
+//*   ex:
+
+db.emp.find();
+
+
+
+//!-----------find({},{},{});
+
+const { path } = require("express/lib/application");
+
+//?----------find({filter-condition},{projection},{optional})
+
+//*    projection
+
+//? it is used to display the record from the document 
+//?  by selection filed wise 
+
+//todo--  waqtd name of all the employees 
+
+db.emp.find({}, { ename: 1, _id: 0 }, {});
+
+//todo--  waqtd name and salary of all the employees 
+
+db.emp.find({}, { ename: 1, sal: 1, _id: 0 });
+
+
+//------------assignment
+
+// 1.WRITE A QUERY TO DISPLAY ALL THE DETAILS FROM THE EMPLOYEE TABLe
+db.emp.find();
+// 2.waqtd name ,mrg of all the employees
+db.emp.find({}, { ename: 1, mgr: 1, _id: 0 });
+// 3.WAQTD NAME AND SALARY GIVEN TO ALL THE EMPLOYEES
+db.emp.find({}, { ename: 1, sal: 1, _id: 0 });
+// 4.WAQTD NAME AND COMMISSION GIVEN TO ALL THE EMPLOYEES
+db.emp.find({}, { ename: 1, comm: 1, _id: 0 });
+// 5.WAQTD EMPLOYEE ID AND DEPARTMENT NUMBER OF ALL THE EMPLOYEES IN EMP TABLE.
+db.emp.find({}, { empno: 1, deptno: 1, _id: 0 });
+// 6.WAQTD ENAME AND HIREDATE OF ALL THE EMPLOYEES 
+db.emp.find({}, { ename: 1, hiredate: 1, _id: 0 });
+// 7.WAQTD NAME AND DESIGNATION OF ALL THE EMPLPOYEES 
+db.emp.find({}, { ename: 1, job: 1, _id: 0 });
+// 8.WAQTD NAME , JOB AND SALARY GIVEN ALL THE EMPLOYEES 
+db.emp.find({}, { ename: 1, job: 1, sal: 1, _id: 0 });
+// 9.WAQTD DNAMES PRESENT IN DEPARTMENT TABLE
+db.dept.find({}, { dname: 1, _id: 0 });
+// 10.WAQTD DNAME AND LOCATION PRESENT IN DEPT TABLE
+db.dept.find({}, { dname: 1, location: 1, _id: 0 });
+
+
+//todo alias name 
+//? it used to give alternative name to the field in result document
+//*   syntax:      {alias_name:"$values"}
+//* when we are using the field name as values the use "$filedname"
+//? sal -----> salary
+//? comm -----> commission
+//? empno------> employeenumber
+//todo--------- subtract
+
+//?  it is used to get the subtract values 
+
+//*   syntax:   $subtract:[exp1,exp2.....exp_n]
+
+//! waqtd name amd sal with deduction of 100 along with sal filed
+
+//?  select ename,sal,sal-100
+//?  from emp;
+
+db.emp.find({}, { ename: 1, sal: 1, sal_deduct: { $subtract: ["$sal", 100] }, _id: 0 })
+
+//todo---- multiply
+
+//?  it is used to get the product values 
+
+//*   syntax:   $multiply:[exp1,exp2.....exp_n]
+
+//?  sal------> monthly_sal
+
+//?   annual_sal--->?
+
+//!--- waqtd name and annual salary ?
+
+// select ename,sal*12 
+// from emp;
+
+db.emp.find({}, { ename: 1, annual_sal: { $multiply: ["$sal", 12] }, _id: 0 })
+
+// mid-trem sal---->  sal * 6 
+
+// quater sal----> sal*3 
+
+//todo--------------division
+
+//?  it is used to get the quotient values 
+
+//*   syntax:   $divide:[exp1,exp2.....exp_n]
+
+//?-- waqtd name ,comm and per day salary
+
+// select ename ,comm,sal/30 from emp;
+
+db.emp.find({}, { ename: 1, comm: 1, per_day_sal: { $divide: ["$sal", 30] }, _id: 0 })
+
+
+//?---waqtd name ,annual_sal with hike of 100
+
+//todo------- select ename,sal*12 + 100 from emp;
+//? bodmas  $add:[{$multiply:["$sal",12]},100]
+
+
+db.emp.find({}, { ename: 1, annual_hike: { $add: [{ $multiply: ["$sal", 12] }, 100] }, _id: 0 })
+
+
+
+// ALIAS:
+// -----------------
+// 1.WAQTD NAME OF THE EMPLOYEE ALONG WITH THEIR ANNUAL SALARY.
+// 2.WAQTD ENAME AND JOB FOR ALL THE EMPLOYEE WITH THEIR HALF TERM SALARY.
+// 3.WAQTD ALL THE DETAILS OF THE EMPLOYEES ALONG WITH AN ANNUAL BONUS OF 2000.
+// 4.WAQTD NAME SALARY AND SALARY WITH A HIKE OF 10%.
+// 5.WAQTD NAME AND SALARY WITH DEDUCTION OF 25%.
+// 6.WAQTD NAME AND SALARY WITH  MONTHLY HIKE OF 50.
+// 7.WAQTD NAME AND ANNUAL SALARY WITH DEDUCTION OF 10%.
+//! 8.WAQTD TOTAL SALARY GIVEN TO EACH EMPLOYEE (SAL+COMM).
+// 9.WAQTD DETAILS OF ALL THE EMPLOYEES ALONG WITH ANNUAL SALARY.
+// 10.WAQTD NAME AND DESIGNATION ALONG WITH 100 PENALTY IN SALARY.
+
+
+//? waqtd name ,salary of all the employees 
+db.emp.find({}, { ename: 1, sal: 1, _id: 0 }, {});
+
+//? waqtd name ,deptno and comm  of all the employees
+
+db.emp.find({}, { ename: 1, deptno: 1, comm: 1, _id: 0 });
+
+//?---> waqtd name and deptno of all the employees 
+
+db.emp.find({}, { ename: 1, deptno: 1, _id: 0 })
+
+//?--> waqtd name and deptno of all the employees who is working in deptno 10
+
+// select ename ,deptno 
+// from  emp
+// where  deptno = 10;          //?  <filter cond>;  col_name opterator values
+
+db.emp.find({ deptno: 10 }, { ename: 1, deptno: 1, _id: 0 });
+
+//? waqtd details of the employees who is working a president
+
+// select *
+// from emp 
+// where job='PRESIDENT' ;
+db.emp.find({ job: 'president' })
+//todo ------------>  aggregate 
+//? it is used to display the data 
+//? in aggretate we have n number of stages 
+
+//!---waqtd details of the employees ?
+db.emp.aggregate([]);
+
+//!--->projection 
+
+//?   syntax:     
+// $project:{ field_name1 :1,
+//            field_name2 :1
+//           }
+
+//?---> waqtd name and deptno of all the employees 
+
+db.emp.aggregate([
+  {
+    $project: {
+      emp_name: "$ename",
+      deptno: 1,
+      _id: 0
+    }
+  }
+])
+
+//?---> waqtd name and deptno of all the employees who is morking in deptno 10
+
+// select ename ,deptno
+// from  emp
+// where  deptno = 10;          //?  <filter cond>;  col_name opterator values
+
+// db.emp.find({deptno:10},{ename:1,deptno:1,_id:0});
+
+//!  sql ---> where     mongodb ----> $match
+
+//!----->$match
+
+//? $match it is used to write the filter condition
+//? $match will execute document by document
+
+//?       sql
+
+//todo ------order of execution 
+
+//       from 
+//       where 
+//       group by 
+//       having 
+//       select
+//       order by 
+
+db.emp.aggregate([
+  {
+    $match: {
+      deptno: 10
+    }
+  }, {
+    $project: {
+      ename: 1,
+      deptno: 1,
+      _id: 0
+    }
+  }
+])
+//!---> waqtd name and salary of all the employee who is working as analyst
+// select ename,sal
+// from emp
+// where job='ANALYST' ;
+db.emp.find({ job: "analyst" }, { ename: 1, sal: 1, _id: 0 });
+
+//?    or 
+
+db.emp.aggregate([
+  {
+    $match: {
+      job: "analyst"
+    }
+  },
+  {
+    $project: {
+      ename: 1,
+      sal: 1,
+      _id: 0
+    }
+  }
+]);
+
+//!  waqtd name and salary of all the employees who is earning more than 2000
+
+// select ename,sal
+// from emp
+// where sal >2000;      or where sal >= 2001 ;
+//?   find
+// db.emp.find({sal>2000},{ename:1,sal:1,_id:0})  //? --- error
+
+//!------comparison operators
+//?      $gt , $lt , $gte  ,  $lte , $eq , $ne ,$in , $nin
+//todo   -----------$gt ---> greater than
+//?    syntax:      {filed_name:{$gt:value}}
+db.emp.find({ sal: { $gt: 2000 } }, { ename: 1, sal: 1, _id: 0 });
+//todo   -----------$gte ---> greater than
+//?    syntax:      {filed_name:{$gte:value}}
+db.emp.find({ sal: { $gte: 2001 } }, { ename: 1, sal: 1, _id: 0 });
+//todo   -----------$lt ---> lesser than equal
+//?    syntax:      {filed_name:{$lt:value}}
+//todo   -----------$lte ---> lesser than equal too
+//?    syntax:      {filed_name:{$lte:value}}
+//todo   -----------$eq ---> equal too
+//?    syntax:      {filed_name:{$eq:value}}
+//todo   -----------$ne ---> not equal too
+//?    syntax:      {filed_name:{$ne:value}}
+
+//? -------or
+db.emp.aggregate([
+  {
+    $match: {
+      sal: { $gt: 2000 }
+    }
+  },
+  {
+    $project: {
+      ename: 1,
+      sal: 1,
+      _id: 0
+    }
+  }
+]);
+
+//?----> waqtd name ,comm ,salary of all the employee who is earning the comm is 
+//?----> greater than equal to 400
+
+db.emp.find({ comm: { $gte: 400 } }, { ename: 1, sal: 1, comm: 1, _id: 0 });
+
+db.emp.aggregate([
+  {
+    $match: {
+      comm: {
+        $gte: 400
+      }
+    }
+  },
+  {
+    $project: {
+      ename: 1,
+      sal: 1,
+      _id: 0
+    }
+  }
+])
+//! 9.WAQTD DETAILS OF ALL THE EMPLOYEES ALONG WITH ANNUAL SALARY.
+
+//!---> how to add a new filed in aggregate method
+
+//?-----> syntax:     $addFields:{exp1,exp2......expN}
+
+db.emp.aggregate([
+  {
+    $addFields: { annual_sal: { $multiply: ["$sal", 12] } }
+  }
+])
+//? --WAQTD ename ,sal and job of all the empls who is earning annual sal is 9600.
+// select ename ,sal,job 
+// from emp 
+// where sal*12=9600 ;
+db.emp.aggregate([
+  {
+    $addFields: { annual_sal: { $multiply: ["$sal", 12] } }
+  },
+  {
+    $match: {
+      annual_sal: 9600
+    }
+  },
+  {
+    $project: {
+      ename: 1,
+      sal: 1,
+      job: 1,
+      _id: 0,
+      // annual_sal: 1
+    }
+  }
+]);
+
+
+
+//! 3.WAQTD ALL THE DETAILS OF THE EMPLOYEES ALONG WITH AN ANNUAL BONUS OF 2000.
+
+// select emp.* ,sal*12+2000 annual_bonus
+// from emp ;
+
+
+
+db.emp.aggregate([
+  {
+    $addFields: { annual_bonus: { $add: [{ $multiply: ["$sal", 12] }, 2000] } }
+  }
+])
+
+
+
+
+//? waqtd name and hiredate of the emp's who is hired on 01-MAY-81
+
+//?  date ---> new Date("value");
+
+
+// 1.WAQTD THE ANNUAL SALARY OF THE EMPLOYEE WHOS NAME IS SMITH
+//?  select sal*12 from emp where ename='SMITH' ;
+db.emp.find({ ename: "smith" }, { annual_salary: { $multiply: ["$sal", 12] }, _id: 0 })
+
+// 2.WAQTD NAME OF THE EMPLOYEES WORKING AS CLERK
+// 3.WAQTD SALARY OF THE EMPLOYEES WHO ARE WORKING AS    SALESMAN
+// 4.WAQTD DETAILS OF THE EMP WHO EARNS MORE THAN 2000
+db.emp.find({ sal: { $gt: 2000 } })
+// 5.WAQTD DETAILS OF THE EMP WHOS NAME IS JONES
+// 6.WAQTD DETAILS OF THE EMP WHO WAS HIRED AFTER 01-JAN-81
+//?                  01-JAN-81 >
+//?                   02-JAN-81 >=
+// 7.WAQTD NAME AND SAL ALONG WITH HIS ANNUAL SALARY IF THE ANNUAL SALARY IS MORE THAN 12000
+// 8.WAQTD EMPNO OF THE EMPLOYEES WHO ARE WORKING IN DEPT 30 
+// 9.WAQTD ENAME AND HIREDATE IF THEY ARE HIRED BEFORE 1981
+
+
+//? ...... 1979,1980 < 1981
+//? .......          < 01-01-1981
+//? ................<= 31-12-1980
+
+db.emp.aggregate([
+  {
+    $match: {
+      hiredate: { $lt: new Date("1981-01-01") }
+    }
+  },
+  {
+    $project: {
+      ename: 1,
+      hiredate: 1,
+      _id: 0
+    }
+  }
+])
+// 10.WAQTD DETAILS OF THE EMPLOYEES WORKING AS MANAGER
+// 11.WAQTD NAME AND SALARY GIVEN TO AN EMPLOYEE IF  EMPLOYEE EARNS  A COMMISSION OF RUPEES 1400 
+//! 12.WAQTD DETAILS OF EMPLOYEES HAVING COMMISSION MORE THAN SALARY 
+// db.emp.find({comm:{$gt:"$sal"}}) //* no result 
+//? compare two fileds 
+
+// 13.WAQTD EMPNO OF EMPLOYEES HIRED BEFORE THE YEAR 87
+db.emp.find({ hiredate: { $lt: new Date("1987-01-01") } }, { empno: 1, _id: 0 });
+// 14.WAQTD DETAILS OF EMPLOYEES WORKING AS AN N ANALYST
+// 15.WAQTD DETAILS OF EMPS EARNING MORE THAN 2000 RUPEES PER MONTH 
+
+
+
+
+// new Date()    // current date 
+
+db.students.insertOne({
+  sid: 1,
+  sname: "Atul",
+  Dob: new Date()
+})
+
+new Date("yyyy-mm-dd")
+
+//?   yyyy---->2024
+//?   mm----> number in months --> 08
+//?   dd---> date ---->
+
+//? anupum yadav
+//?  6/11/2001
+
+db.students.insertOne({
+  sid: 2,
+  sname: "anupum yadav",
+  Dob: new Date("2001-11-06")
+})
+
+//?- waqtd name and salary ,job and deptno of the employee who is working as president
+
+db.emp.find({ job: "president" }, { ename: 1, sal: 1, deptno: 1, job: 1, _id: 0 })
+
+//?- waqtd name and job  deptno of the employee who is working in deptno 10
+
+
+db.emp.find({ deptno: 10 }, { ename: 1, deptno: 1, job: 1, _id: 0 });
+
+//?- waqtd name and job  ,deptno of the employee who is working in deptno 10 as
+//? a manager
+
+
+db.emp.find({ deptno: 10, job: "manager" }, { ename: 1, job: 1, deptno: 1, _id: 0 });
+
+//? WAQTD DETAILS OF THE EMPLOYEE WHO IS WORKING AS A SALESMAN IN DEPTNO 30
+
+db.emp.find({ job: "salesman", deptno: 30 })
+
+
+
+// //? WAQTD ename,deptno OF THE EMPLOYEE WHO IS WORKING in DEPTNO 30 or deptno 20
+
+// db.emp.find({deptno:20,deptno:30},{ename:1,deptno:1,_id:0})
+
+//todo       logical operator 
+
+//?     $and , $or ,$not , $nor
+
+//!     $and 
+
+//? $add opertator is logical operator 
+//? if all the condition are satified then it returns true
+
+//!      i/p               o/p
+//?   a        b            c
+
+//?   T        T            T
+//?   T        F            F
+//?   F        T            F
+//?   F        F            F
+
+//TODO syntax:      $and:[{exp1},{exp2}...{exp_n}]
+
+//? WAQTD DETAILS OF THE EMPLOYEE WHO IS WORKING AS A SALESMAN IN DEPTNO 30
+
+db.emp.find({ $add: [{ job: "salesman" }, { deptno: 30 }] });
+
+
+//!-- waqtd name ,sal and job of all the employees 
+//!-- who is earning more than 2500 as manager
+
+db.emp.aggregate([
+  {
+    $match: {
+      $and: [
+        // { sal: { $gt: 2500 } },
+        { job: "manager" }
+      ]
+    }
+  },
+  {
+    $project: {
+      ename: 1,
+      sal: 1,
+      job: 1,
+      _id: 0
+    }
+  }
+])
+
+
+
+//!     $or 
+
+//? $or opertator is logical operator 
+//? if any one of the condition are satified then it returns true
+
+//!      i/p               o/p
+//?   a        b            c
+
+//?   T        T            T
+//?   T        F            T
+//?   F        T            T
+//?   F        F            F
+
+//TODO syntax:      $or:[{exp1},{exp2}...{exp_n}]
+
+//todo- waqtd name and deptno of all the employees who is working in deptno 10 or 20
+db.emp.find({ $or: [{ deptno: 10 }, { deptno: 20 }] }, { ename: 1, deptno: 1, _id: 0 })
+
+//todo-- waqtd name ,job of all the employee who designation is manager or analyst
+
+
+db.emp.find({ $or: [{ job: "manager" }, { job: "analyst" }] }, { ename: 1, job: 1, _id: 0 })
+
+
+//!     $not 
+
+//? $not opertator is logical operator 
+//? it is used to give opposite result
+
+//!      i/p               o/p
+//?      a                  b
+
+//?      T                  f
+//?      f                  t
+
+//TODO syntax:      {filed_name :{$not :{comparison_op: value}}}
+
+//! waqtd name and deptno of all the employees except deptno 10
+
+db.emp.find({ deptno: { $not: { $eq: 10 } } }, { ename: 1, deptno: 1, _id: 0 })
+
+
+
+// LOGICAL OPERATORS:
+// ————————————————
+// 1.WAQTD DETAILS OF THE EMPLOYEES WORKING AS CLERK AND EARNING LESS THAN 1500
+db.emp.find({ $and: [{ job: "clerk" }, { sal: { $lt: 1500 } }] })
+// 2.WAQTD NAME AND HIREDATE OF THE EMPLOYEES WORKING AS  MANAGER IN DEPT 30 
+// 3.WAQTD DETAILS OF THE EMP ALONG WITH ANNUAL SALARY IF THEY ARE WORKING IN DEPT 30 AS SALESMAN AND THEIR ANNUAL SALARY HAS TO BE GREATER THAN 14000
+// 4.WAQTD ALL THE DETAILS OF THE EMP WORKING IN DEPT 30 OR AS ANALYST
+// 5.WAQTD NAMES OF THE EMPMLOYEES WHOS SALARY IS LESS THAN 1100 AND THEIR DESIGNATION IS CLERK
+// 6.WAQTD NAME AND SAL , ANNUAL SAL AND DEPTNO IF DEPTNO IS 20 EARNING MORE THAN 1100 AND ANNUAL SALARY EXCEEDS 12000.
+// 7.WAQTD EMPNO AND NAMES OF THE EMPLOYEES WORKING AS MANAGER IN DEPT 20 
+// 8.WAQTD DETAILS OF EMPLOYEES WORKING IN DEPT 20 OR 30 
+db.emp.find({ $or: [{ deptno: 20 }, { deptno: 30 }] })
+// 9.WAQTD DETAILS OF EMPLOYEES WORKING AS AN ANALYST IN DEPT  20 
+// 10.WAQTD DETAILS OF EMPLOYEE WORKING AS PRESIDENT WITH SALARY OF RUPEES 4000
+
+//? waqtd name and deptno of all the employees except deptno 30
+
+db.emp.find({ deptno: { $ne: 30 } }, { ename: 1, deptno: 1, _id: 0 })
+
+db.emp.find({ deptno: { $not: { $eq: 30 } } }, { ename: 1, deptno: 1, _id: 0 })
+
+//? waqtd name and deptno of all the employees except deptno 10,30
+//! whenever we dont want different values from same filed we need to use $and
+//! whenever we want different values from same filed we need to use $or
+
+db.emp.find({
+  $and: [
+    { deptno: { $ne: 10 } },
+    { deptno: { $ne: 30 } }
+  ]
+}, { ename: 1, deptno: 1, _id: 0 })
+
+//!------- or
+
+//todo ---------------$nor
+
+//? $nor op is a logical op ,it will works like a combination of $or ,$not operator
+//* syntax:    $nor:[{filed_name:value},{exp2}...{exp_n}]
+//? waqtd name and deptno of all the employees except deptno 10,30
+
+db.emp.find({ $nor: [{ deptno: 10 }, { deptno: 30 }] }, { ename: 1, deptno: 1, _id: 0 })
+
+//? waqtd name and ,job,deptno of all the employees who is working as 
+//? manager ,analyst ,president
+
+db.emp.find({
+  $or: [
+    { job: "manager" },
+    { job: "analyst" },
+    { job: "president" }
+  ]
+}, {
+  ename: 1,
+  job: 1,
+  deptno: 1,
+  _id: 0
+})
+
+//todo  --------------------$in operator 
+//* $in operator is comparison op 
+//* $in it can accept one filed name in LHS and multiple values at RHS
+
+//!   SYNTAX:    {filed_name:{$in:[v1,v2,v3....vn]}}
+
+db.emp.find({ job: { $in: ["manager", "analyst", "president"] } },
+  { ename: 1, job: 1, deptno: 1, _id: 0 });
+
+
+//? waqtd name and deptno of all the employees who is working in 10,20
+
+db.emp.find({ deptno: { $in: [10, 20] } }, { ename: 1, deptno: 1, _id: 0 })
+
+
+
+//todo  --------------------$nin operator 
+//* $nin operator is comparison op 
+//* $nin it can accept one filed name in LHS and multiple values at RHS
+
+//!   SYNTAX:    {filed_name:{$nin:[v1,v2,v3....vn]}}
+
+
+//? waqtd name and deptno of all the employees who is not working in 10,20
+
+db.emp.find({ deptno: { $nin: [10, 20] } }, { ename: 1, deptno: 1, _id: 0 });
+
+//! waqtd name ,job,deptno of all the employee 
+//! who is working as a manager in deptno 10,30
+//* use only logical operator 
+
+// select ename,job,deptno 
+// from emp
+// where job="manager" and deptno=10 or deptno =30 ;
+//?                    gf 
+
+
+db.emp.find({
+  $and: [
+    { job: "manager" },
+    { $or: [{ deptno: 10 }, { deptno: 30 }] }
+  ]
+}, {
+  ename: 1, job: 1, deptno: 1, _id: 0
+})
+
+
+//? WAQTD NAMES ,hiredate ,deptno OF EMPLOYEES HIRED AFTER 81 INTO DEPT 10 OR 30 
+
+db.emp.find({
+  $and: [
+    {
+      $or: [
+        { deptno: 10 },
+        { deptno: 30 }
+      ]
+    },
+    {
+      hiredate: { $gt: new Date("1981-12-31") }
+    }
+  ]
+}, {
+  ename: 1, deptno: 1, hiredate: 1, _id: 0
+});
+
+//? or 
+
+db.emp.find({
+  $and: [
+    {
+      hiredate: { $gt: new Date("1981-12-31") }
+    }, {
+      deptno: { $in: [10, 30] }
+    }
+  ]
+}, {
+  ename: 1, deptno: 1, hiredate: 1, _id: 0
+});
+
+
+//! 12.WAQTD DETAILS OF EMPLOYEES HAVING COMMISSION MORE THAN SALARY 
+// db.emp.find({comm:{$gt:"$sal"}}) //* no result 
+//? $expr it is used compare two fileds values
+
+//?  $expr:{comparison_op:[v1,v2]}
+
+db.emp.find({ $expr: { $gt: ["$comm", "$sal"] } })
+
+
+// details of emp except deptno  10,30
+
+db.emp.find({
+  $and: [
+    { deptno: { $not: { $eq: 10 } } },
+    { deptno: { $not: { $eq: 30 } } }
+  ]
+}, { ename: 1, deptno: 1, _id: 0 });
+
+// or
+
+db.emp.find({
+  $nor: [
+    { deptno: 10 },
+    { deptno: 30 }
+  ]
+}, { ename: 1, deptno: 1, _id: 0 });
+
+// or
+
+db.emp.find({ deptno: { $nin: [10, 30] } }, { ename: 1, deptno: 1, _id: 0 });
+
+
+//! 8.WAQTD TOTAL SALARY GIVEN TO EACH EMPLOYEE (SAL+COMM).
+
+db.emp.find({}, { sal: 1, comm: 1, total_salary: { $add: ["$sal", "$comm"] }, _id: 0 }); // wrong
+
+
+db.emp.find({}, { commission: { $ifNull: ["$comm", 0] }, comm: 1, _id: 0 });
+
+
+db.emp.find({}, { sal: 1, comm: { $ifNull: ["$comm", 0] }, total_salary: { $add: ["$sal", { $ifNull: ["$comm", 0] }] }, _id: 0 });
+
+
+
+//---- assignment 
+
+// 11.WAQTD NAMES AND DEPTNO , JOB OF EMPS WORKING AS CLERK IN DEPT 10 OR 20 
+// 12.WAQTD DETAILS OF EMPLOYEES WORKING AS CLERK OR MANAGER IN DEPT 10 
+// 13.WAQTD NAMES OF EMPLOYEES WORKING IN DEPT 10 , 20 , 30 , 40 
+// 14.WAQTD DETAILS OF EMPLOYEES WITH EMPNO 7902,7839
+// 15.WAQTD DETAILS OF EMPLOYEES WORKING AS MANAGER OR SALESMAN OR CLERK 
+// 16.WAQTD NAMES OF EMPLOYEES HIRED AFTER 81 AND BEFORE 87
+// 17.WAQTD DETAILS OF EMPLOYEES EARNING MORE THAN 1250 BUT LESS THAN 3000 
+// 18.WAQTD NAMES OF EMPLOYEES HIRED AFTER 81 INTO DEPT 10 OR 30 
+// 19.WAQTD NAMES OF EMPLOYEES ALONG WITH ANNUAL SALARY FOR THE EMPLOYEES WORKING AS MANAGER OR CLERK INTO DEPT 10 OR 30 
+// 20.WAQTD ALL THE DETAILS ALONG WITH ANNUAL SALARY IF SAL IS BETWEEN 1000 AND 4000  ANNUAL SALARY MORE THAN 15000
+
+//? waqtd name and deptno of all the employees who is working in deptno 10,40
+
+db.emp.find({
+  $or: [
+    { deptno: 10 },
+    { deptno: 30 }
+  ]
+});
+
+//? waqtd name and salary of all the employees who is earning sal more than 2000
+//? but sal less than 3000
+
+db.emp.find({ $and: [{ sal: { $gt: 2000 } }, { sal: { $lt: 3000 } }] }, { ename: 1, sal: 1, _id: 0 });
+
+
+//todo---------------------22/08/2024------------------------------
+
+//todo----> mod()---> reminder values
+//todo ------------------$mod--------------------------------------
+//? $mod function it will return the reminder values 
+
+//! syntax:       {filed_name:{$mod:[divisor,reminder]}}
+
+//* waqtd empno ,ename of all the employee who's empno number is odd digit
+
+db.emp.find({ empno: { $mod: [2, 1] } }, { empno: 1, ename: 1, _id: 0 });
+
+//* waqtd empno ,ename of all the employee who's empno number is even digit
+
+db.emp.find({ empno: { $mod: [2, 0] } }, { empno: 1, ename: 1, _id: 0 });
+
+//*-----------------------------------------------------------------
+//todo-------------task
+//todo -----------------------$regex-------------------------------
+//? $regex is used to pattern matching 
+//? pattern matching can be achived by some characters
+
+//? name starts with use cap  ^ symbol at first
+//? name end  with use doller $ symbol at end
+//? to find the unkown characters we use .* symbol
+//? to find the exact number of characters . dot symbol
+
+//*----syntax:    {field_name:{$regex:/pattern_matching/}}
+//todo-----example:
+//?---waqtd name of all the employees who's name start with "a"
+
+db.emp.find({ ename: { $regex: /^a.*/ } }, { ename: 1, _id: 0 });
+
+//?---waqtd name of all the employees who's name end with "s"
+
+db.emp.find({ ename: { $regex: /.*s$/ } }, { ename: 1, _id: 0 });
+
+//?---waqtd name of all the employees who's name start with "a" and ends with "s"
+
+db.emp.find({ ename: { $regex: /^a.*s$/ } }, { ename: 1, _id: 0 });
+
+//? waqtd name and salary of all the employees whos name contain character "a"
+
+//!---db.emp.find({ename:{$regex:/a/}},{ename:1,_id:0});  // DONT USE
+
+db.emp.find({ ename: { $regex: /.*a.*/ } }, { ename: 1, _id: 0 });
+
+//? waqtd name and salary of all the employees whos name contain altlest  2 "a"
+
+db.emp.find({ ename: { $regex: /.*a.*a.*/ } }, { ename: 1, sal: 1, _id: 0 });
+
+//? waqtd name and job of all the employees whos desigination contain "man"
+
+db.emp.find({ job: { $regex: /.*man.*/ } }, { ename: 1, job: 1, _id: 0 });
+
+//? waqtd name and job of all the employees who name conatain continious "LL"
+
+db.emp.find({ ename: { $regex: /.*ll.*/ } }, { ename: 1, job: 1, _id: 0 });
+
+//? waqtd name of all the employees who's name conatain exactly 4 characters
+
+db.emp.find({ ename: { $regex: /^....$/ } }, { ename: 1, _id: 0 })
+
+//?waqtd name and salary of all the employees whos name exactly 3rd character is"l"
+db.emp.find({ ename: { $regex: /^..l.*/ } }, { ename: 1, sal: 1, _id: 0 })
+
+//? waqtd name ,job of all the employees whos name start with "t" 
+//? and last but one chacter "e" and the name contain exactly 6 charcters
+//? and 4th letter of the name is "n"
+db.emp.find({ ename: { $regex: /^t..ne.$/ } }, { ename: 1, job: 1, _id: 0 })
+
+
+
+
+//? waqtd name of all the employees whos name start with "a" or "m"
+
+db.emp.find({
+  $or: [
+    { ename: { $regex: /^a.*/ } },
+    { ename: { $regex: /^m.*/ } }
+  ]
+}, { _id: 0, ename: 1 });
+
+db.emp.find({ ename: { $regex: /^a.*||^m.*/ } }, { ename: 1, _id: 0 })
+
+//?-waqtd name and salary of all the employees whos salary start with 5
+
+db.emp.aggregate([
+  { $addFields: { salary: { $toString: "$sal" } } },
+  { $match: { salary: { $regex: /^5.*/ } } },
+  {
+    $project: {
+      ename: 1,
+      sal: 1,
+      _id: 0
+    }
+  }
+])
+
+//?-waqtd name and salary of all the employees whos salary ends with 5
+
+db.emp.aggregate([
+  { $addFields: { salary: { $toString: "$sal" } } },
+  { $match: { salary: { $regex: /.*5$/ } } },
+  {
+    $project: {
+      ename: 1,
+      sal: 1,
+      _id: 0
+    }
+  }
+]);
+
+
+//todo ----------aggregation methos 
+
+//? waqtd name and hiredate of all the employees whos is hired on feb
+
+new Date("yyyy-mm-dd")
+
+// $year---> yyyy ,$month---> mm , $dayOfMonth---> dd
+//?   {alias_name:{$year:"$filed_name"}}
+//?   {alias_name:{$month:"$filed_name"}}
+//?   {alias_name:{$dayOfMonth:"$filed_name"}}
+
+db.emp.find({}, {
+  hiredate: 1,
+  year: { $year: "$hiredate" },
+  month: { $month: "$hiredate" },
+  Date: { $dayOfMonth: "$hiredate" },
+  _id: 0
+});
+
+
+db.emp.aggregate([
+  {
+    $addFields: {
+      year: { $year: "$hiredate" },
+      month: { $month: "$hiredate" },
+      Date: { $dayOfMonth: "$hiredate" },
+    }
+  },
+  {
+    $match: {
+      month: 2
+    }
+  },
+  {
+    $project: {
+      ename: 1, hiredate: 1, _id: 0
+    }
+  }
+])
+
+
+//todo------- assignments
+// 1) LIST ALL THE EMPLOYEES WHOSE COMMISSION IS NULL
+// 2) LIST ALL THE EMPLOYEES WHO DON’T HAVE A REPORTING MANAGER
+// 3) LIST ALL THE SALESMEN IN DEPT 30
+// 4) LIST ALL THE SALESMEN IN DEPT NUMBER 30 AND HAVING SALARY GREATER THAN 1500
+// 5) LIST ALL THE EMPLOYEES WHOSE NAME STARTS WITH ‘S’ OR ‘A’
+// 6) LIST ALL THE EMPLOYEES EXCEPT THOSE WHO ARE WORKING IN DEPT 10 & 20.
+// 7) LIST THE EMPLOYEES WHOSE NAME DOES NOT START WITH ‘S’
+// 8) LIST ALL THE EMPLOYEES WHO ARE HAVING REPORTING MANAGERS IN DEPT 10
+// 9) LIST ALL THE EMPLOYEES WHOSE COMMISSION IS NULL AND WORKING AS CLERK
+// 10) LIST ALL THE EMPLOYEES WHO DON’T HAVE A REPORTING MANAGER IN DEPTNO 10 OR 30
+// 11) LIST ALL THE SALESMEN IN DEPT 30 WITH SAL MORE THAN 2450
+// 12) LIST ALL THE ANALYST IN DEPT NUMBER 20 AND HAVING SALARY GREATER THAN 2500
+// 13) LIST ALL THE EMPLOYEES WHOSE NAME STARTS WITH ‘M’ OR ‘J’
+// 14) LIST ALL THE EMPLOYEES WITH ANNUAL SALARY EXCEPT THOSE WHO ARE WORKING IN DEPT 30
+// 15) LIST THE EMPLOYEES WHOSE NAME DOES NOT END WITH ‘ES’ OR ‘R’
+// 16) LIST ALL THE EMPLOYEES WHO ARE HAVING REPORTING MANAGERS IN DEPT 10
+// 17) DISPLAY ALL THE EMPLOYEE WHO ARE ‘SALESMAN’S HAVING ‘E’ AS THE LAST BUT ONE CHARACTER IN ENAME BUT SALARY HAVING EXACTLY 4 CHARACTER
+// 18) DISPLAY ALL THE EMPLOYEE WHO ARE JOINED AFTER YEAR 81
+// 19) DISPLAY ALL THE EMPLOYEE WHO ARE JOINED IN sep
+// 20) LIST THE EMPLOYEES WHO ARE NOT WORKING AS MANAGERS AND CLERKS IN DEPT 10 AND 20 WITH A SALARY IN THE RANGE OF 1000 TO 3000.
+
+//todo-----------------task
+
+//? waqtd name of all the employees whos name start with ^
+//? waqtd name of all the employees whos name end with $
+//? //? waqtd name of all the employees whos name contain with ^
+
+//todo----------------explict method of creating collection 
+db.createCollection("customer");
+
+//todo----------------implict method of creating collection
+
+//?    db.collection_name.insertMany([{},{},{}])
+
+//? ---- customer ----> collection_name 
+
+db.customer.insertMany([
+  {
+    _id: 1,
+    name: "John",
+    age: 25,
+    address: {
+      street: "123 Main St",
+      city: "Anytown",
+      state: "CA",
+      zip: "12345"
+    },
+    fruits: ["apple", "orange", "banana", "mango"]
+  },
+  {
+    _id: 2,
+    name: "^ananya",
+    age: 30,
+    address: {
+      street: "456 Elm St",
+      city: "Othertown",
+      state: "NY",
+      zip: "67890"
+    },
+    fruits: ["apple", "kiwi", "mango"]
+  },
+  {
+    _id: 3,
+    name: "$deepa",
+    age: 35,
+    address: {
+      street: "789 Oak St",
+      city: "bangalore",
+      state: "KA",
+      zip: "34567"
+    },
+    fruits: ["orange", "mango", "grapes"]
+  },
+  {
+    _id: 4,
+    name: "Rahul",
+    age: 40,
+    address: {
+      street: "901 Maple St",
+      city: "Mumbai",
+      state: "MH",
+      zip: "23456"
+    },
+    fruits: ["dragoon fruit"],
+  },
+  {
+    _id: 5,
+    name: "suhan$",
+    age: 45,
+    address: {
+      street: "1234 Pine St",
+      city: "chennai",
+      state: "TN",
+      zip: "56789"
+    },
+  }
+])
+
+db.customer.insertOne({
+  _id: 6,
+  name: "anu$pum"
+})
+
+
+//todo-----------------task
+
+//? waqtd name of all the customer whos name start with ^
+db.customer.find({ name: { $regex: /^^.*/ } }, { name: 1, _id: 0 }) //! worng answer
+//todo----- to remove the special power we can use \
+db.customer.find({ name: { $regex: /^\^.*/ } }, { name: 1, _id: 0 });
+//? waqtd name of all the customer whos name end with $
+db.customer.find({ name: { $regex: /.*\$$/ } }, { name: 1, _id: 0 })
+//? //? waqtd name of all the customer whos name contain with $
+db.customer.find({ name: { $regex: /.*\$.*/ } }, { name: 1, _id: 0 })
+
+//!-----------------------------------------------------------------------
+//todo------------------------elemental query operator 
+
+//todo------------------------$exists
+//? the $exists operator matches the particular filed in a document 
+//! {feild_name:{$exists:boolean}}
+//?--waqtd details of the customer whos document contain the friuts fileds 
+db.customer.find({ fruits: { $exists: true } });
+//?--waqtd details of the customer whos document not contain the friuts filed
+db.customer.find({ fruits: { $exists: false } });
+//? or 
+db.customer.find({ fruits: { $not: { $exists: true } } });
+
+//!------------------------------------------------------------------------
+//todo ---------------array query operators
+//?  $all,$elemMatch,$size
+//* $all -- > operator
+//? the $all operator is used when the filed constist the array of values 
+//? $all op if all the values are exists in the field then it will executes.
+//!  syntax:     {array_name:{$all:[v1 , v2,...vn]}}
+
+//? waqtd details of all the customer who has purchase the fruit of apple and mango
+
+db.customer.find({ fruits: { $all: ["apple", "mango"] } });
+
+//? or
+
+db.customer.find({
+  $and: [
+    { fruits: "apple" },
+    { fruits: "mango" }
+  ]
+})
+
+//? waqtd name ,state of all the customer who has purchase the fruit of kiwi and mango
+
+db.customer.find({ fruits: { $all: ["kiwi", "mango"] } }, { name: 1, "address.state": 1, _id: 0 })
+
+//todo -----------$elemMatch
+//? the $elemMatch operator is used when the filed constist the array of values
+//? $elemMatch op if any one of the values are exists in the field then it will executes.
+
+//! syntax: {array_name:{$elemMatch:{query1,query2...}}}
+
+//? waqtd name ,city and fruits of the customer if the customer has
+//? purchase the fruit of "apple" or "dragoon fruit"
+
+db.customer.find({ fruits: { $elemMatch: { $in: ["apple", "dragoon fruit"] } } }, { name: 1, "address.city": 1, fruits: 1, _id: 0 })
+
+//todo----------------------------$size-------------------------------------
+
+//? $size it is used to find the array of values with the help of array size
+
+//!  syntax: {array_name:{$size:[number1]}}
+
+//? waqtd detials of all the customer who has purhased only 1 fruit
+
+db.customer.find({ fruits: { $size: 1 } })
+
+//? waqtd detials of all the customer who has  purhased 3 fruit
+db.customer.find({ fruits: { $size: 3 } })
+
+//!------------------------------------------------------------------------
+
+//? updateOne,updateMany
+//? deleteOne,deleteMany
+//? aggregation methods
+//? $project
+//? $match
+//? $group
+//? $sort
+//? $limit
+//? $skip
+//? $lookup
+//? $unwind
+//? $addFields
+
+//todo----------------mapping blw sql & mongodb
+
+//?       select -------------------> $project
+//?       where---------------------> $match-- normal filter condition
+//?       group by------------------->$group
+//?       having------------------->$match---> group filter condition
+//?       order by------------------->$sort
+//?       limit------------------->$limit
+//?       skip------------------->$skip 
+//?       join------------------->$lookup
+
+//? waqtd max salary of the employees 
+
+//? waqtd name of all the employees arrange the name in asscending order
+
+db.emp.find({}, { ename: 1, _id: 0 }).sort({ ename: 1 });
+
+//? waqtd name of all the employees arrange the name inn descending order
+
+db.emp.find({}, { ename: 1, _id: 0 }).sort({ ename: -1 });
+
+
+
+//todo ------$group
+
+//? ---> $group it is used to group the records 
+//?----> whenever we use the $group it must be mandatory we need to use _id 
+//?----> we can use the $sum, $avg, $max, $min in side of the $group fundction 
+//?----> we can use the $push, $addToSet in side of the $group
+
+//*  $sum ---> it is used to produce the sum of values in the field/column
+//*  $avg ---> it is used to produce the average of values in the field/column
+//*  $max ---> it is used to produce the maximum value in the field/column
+//*  $min ---> it is used to produce the minimum value in the field/column
+//*  $sum----> it is used to find the number of records present in the collection
+//*  $push ---> it is used to produce the array of values in the field/column
+//*  $addToSet ---> it is used to produce the array of unique values in the field/column
+
+//! ------syntax:
+/*
+?   {$group :
+?       {
+?     _id:filed_name,
+?     alias_name:{$max:"$filed_name"},
+?     alias_name:{$min:"$filed_name"},
+?     alias_name:{$avg:"$filed_name"},
+?     alias_name:{$sum:"$filed_name"},
+?     alias_name:{$sum: 1},
+?      }}
+
+*/
+
+//? waqtd maximum salary of the employees ?
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: null,
+      maxsal: { $max: "$sal" }
+    }
+  }
+])
+//? waqtd minimum and average salary of all the employees
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: null,
+      minsal: { $min: "$sal" },
+      avgsal: { $avg: "$sal" }
+    }
+  }
+])
+//? waqtd total salary of all the employees 
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: null,
+      totsal: { $sum: "$sal" }
+    }
+  }
+])
+
+//? $sum---> col_name/filed_name ---> total_values of a particular field 
+//? $sum---> numberical val --> number of records in particular collection
+
+//! waqtd max sal ,min sal, avg sal ,total sal and number of employees 
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: null,
+      maxsal: { $max: "$sal" },
+      minsal: { $min: "$sal" },
+      avgsal: { $avg: "$sal" },
+      totsal: { $sum: "$sal" },
+      count: { $sum: 1 }
+    }
+  }
+]);
+
+//?  waqtd maximum salary of the employees who is working in deptno 10
+
+db.emp.aggregate([
+  {
+    $match: {
+      deptno: 10
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      maxsal: { $max: "$sal" }
+    }
+  },
+  {
+    $project: {
+      maxsal: 1,
+      _id: 0
+    }
+  }
+]);
+
+//? 1.WAQTD NUMBER OF EMPLOYEES GETTING SALARY LESS THAN 2000 IN DEPTNO 10
+db.emp.aggregate([
+  {
+    $match: {
+      $and: [
+        { "deptno": 10 },
+        { "sal": { $lt: 2000 } }
+      ]
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      count: { $sum: 1 }
+    }
+  }, {
+    $project: {
+      count: 1,
+      _id: 0
+    }
+  }
+])
+
+//? 2.WAQTD TOTAL SALARY NEEDED TO PAY EMPLOYEES WORKING AS CLERK
+db.emp.aggregate([
+  {
+    $match: {
+      job: "clerk"
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      total_sal: { $sum: "$sal" }
+    }
+  },
+  {
+    $project: {
+      total_sal: 1,
+      _id: 0
+    }
+  }
+])
+//? 3.WAQTD AVERAGE SALARY NEEDED TO PAY ALL EMPLOYEES
+db.emp.aggregate([
+  {
+    $group: {
+      _id: null,
+      avg_sal: { $avg: "$sal" }
+    }
+  },
+  {
+    $project: {
+      avg_sal: 1,
+      _id: 0
+    }
+  }
+])
+//? 4.WAQTD NUMBER OF EMPLOYEES HAVING 'A' AS THEIR FIRST CHARACTER IN THERE NAME
+db.emp.aggregate([
+  {
+    $match: {
+      ename: { $regex: /^A.*/i }
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      count: 1,
+      _id: 0
+    }
+  }
+])
+
+//* i-- its use to make the character is not a case_sensitive
+//? 5.WAQTD NUMBER OF EMPLOYEES WORKING AS CLERK OR MANAGER
+
+db.emp.aggregate([
+  {
+    $match: {
+      job: { $in: ["clerk", "manager"] }
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      count: 1,
+      _id: 0
+    }
+  }
+]);
+
+//? WAQTD NUMBER OF EMP'S WORKING IN DEPTNO 20
+
+db.emp.aggregate([
+  {
+    $match: {
+      deptno: 20
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      count: 1,
+      _id: 0
+    }
+  }
+]);
+
+//? waqtd number of employees in each deptno ?
+//? --> each kew word ---> go with group by
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$deptno",
+      count: { $sum: 1 }
+    }
+  }, {
+    $project: {
+      count: 1,
+      deptno: "$_id",
+      _id: 0
+    }
+  }
+]);
+
+//? waqtd maximum salary of all the employees in each desigination
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$job",
+      max_salary: { $max: "$sal" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      job: "$_id",
+      max_salary: 1
+    }
+  }
+]);
+
+//? waqtd unique job of all the employees 
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$job",
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      job: "$_id",
+    }
+  }
+])
+
+//? waqtd number of unique job of all the employees
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$job",
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      job: "$_id",
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      count: { $sum: 1 }
+    }
+  }
+]);
+
+//? WAQTD NUMBER OF EMPLOYEEES WORKING AS MANAGER IN EACH DEPARTMENT 
+
+db.emp.aggregate([
+  {
+    $match: {
+      job: "manager"
+    }
+  }, {
+    $group: {
+      _id: "$deptno",
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      deptno: "$_id",
+      count: 1
+    }
+  }
+])
+
+//?---------- not group fields
+// 6.WAQTD TOTAL SALARY NEEDED TO PAY EMPLOYEES HIRED IN FEB.
+db.emp.aggregate([
+  {
+    $addFields: { month: { $month: "$hiredate" } }
+  },
+  {
+    $match: {
+      month: 2
+    }
+  }, {
+    $group: {
+      _id: null,
+      total: { $sum: "$sal" }
+    }
+  }
+])
+// 7.WAQTD NUMBER OF EMPLOYEES REPORTING TO 7839 (MGR)
+// 8.WAQTD NUMBER OF EMPLOYEES GETTING COMISSION IN DEPTNO 30
+// 9.WAQTD AVG SAL , TOTAL SAL , NUMBER OF EMPS AND MAXIMUM SALARY GIVEN TO EMPLOYEES WORKING AS PERSIDENT
+// 10.WAQTD NUMBER OF EMPLOYEES HAVING 'A' IN THEIR NAMES
+// 11.WAQTD NUMBER OF EMPS AND TOTAL SALary needed to pay THE EMPLOYEES WHO HAVE 2 CONSICUTIVE L's IN THEIR NAMES
+// 12.WAQTD NUMBER OF DEPARTMENTS PRESENT IN EMPLOYEE TABLE
+// 13.WAQTD NUMBER OF EMPLOYEES HAVING CHARACTER '^' IN THEIR NAMES
+// 14.WAQTD NUMBER OF EMPLOYEES HAVING ATLEAST 2 doller IN THEIR NAMES
+// 15.WAQTD TOTAL SALARY GIVEN TO EMPLOYEES WORKING AS CLERK IN DEPT 30
+// 16.WAQTD MAXIMUM SALARY GIVEN TO THE EMPLOYEES WORKING AS ANALYST
+// 17.WAQTD NUMBER OF DISTINCT SALARIES PRESENT IN EMPLOYEE TABLE
+// 18.WAQTD NUMBER OF JOBS PRESENT IN EMPLOYEE TABLE
+// 19.WATQD AVG SALARY GIVEN TO THE CLERK
+// 20.WAQTD MINIMUM SALARY GIVEN TO THE EMPLOYEES WHO WORK IN DEPT 10 AS MANAGER  OR A CLERK
+
+//?-----------group fields
+
+// 1.WAQTD NUMBER OF EMPLOYEES WORKING IN EACH DEPARTEMENT EXCEPT PRESIDENT
+// 2.WAQTD TOTAL SALARY NEEDED TO PAY ALL THE EMPLOYEES IN EACH JOB
+// 3.WAQTD NUMBER OF EMPLOYEEES WORKING AS MANAGER IN EACH DEPARTMENT
+// 4.WAQTD AVG SALARY NEEDED TO PAY ALL THE EMPLOYEES IN EACH DEPARTMENT EXCLUDING THE EMPLOYEES OF DEPTNO 20
+// 5.WAQTD NUMBER OF EMPLOYEES HAVING CHARACTER 'A' IN THEIR NAMES IN EACH JOB
+// 6.WAQTD NUMBER OF EMPLOYEES AND AVG SALARY NEEDED TO PAY THE  EMPLOYEES WHO SALARY IN GREATER THAN 2000 IN EACH DEPT
+// 7.WAQDTD TOTAL SALARY NEEDED TO PAY AND NUMBER OF SALESMANS IN EACH DEPT
+// 8.WAQTD NUMBER OF EMPLOYEES WITH THEIR MAXIMUM SALARIES IN EACH JOB
+// 9.WAQTD MAXIMUM SALARIES GIVEN TO AN EMPLOYEE WORKING IN EACH DEPT
+// 10.WAQTD NUMBER OF TIMES THE SALARIES ARE PRESENT  IN EMPLOYEE TABLE
+
+
+//TODO ----------------------------26/08/2024---------------------------------
+
+//? WAQTD NUMBER OF EMPLOYEES WORKING IN EMP COLLECTION.
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: null,
+      count: { $sum: 1 }
+    }
+  }, {
+    $project: {
+      count: 1,
+      _id: 0
+    }
+  }
+])
+//? WAQTD NUMBER OF EMPLOYEES WORKING IN each deptno.
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$deptno",
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      deptno: "$_id",
+      count: 1
+    }
+  }
+])
+
+//? WAQTD NUMBER OF EMPLOYEES WORKING IN each deptno atlest 4 member.
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$deptno",
+      count: { $sum: 1 }
+    }
+  }, {
+    $match: {
+      count: { $gte: 4 }
+    }
+  }, {
+    $project: {
+      _id: 0,
+      deptno: "$_id",
+      count: 1
+    }
+  }
+])
+
+//?  waqtd max salary of the employees in each desigination atleast 2 members
+
+db.emp.aggregate([
+  {
+    $group:
+    {
+      _id: "$job",
+      maxSal: { $max: "$sal" },
+      count: { $sum: 1 }
+    }
+  },
+  { $match: { count: { $gte: 2 } } },
+  { $project: { _id: 0, job: "$_id", maxSal: 1 } }]);
+
+//------ class assignment 
+/*
+* 1.  WAQTD DNO AND NUMBER OF EMP WORKING IN EACH DEPT IF THERE ARE 
+*      ATLEAST 2 CLERKS IN EACH DEPT 
+      
+
+
+*2.   WAQTD DNO AND TOTAL SAALARY NEEDED TO PAY ALL EMP IN EACH DEPT 
+*     IF THERE ARE ATLEAST 4 EMP IN EACH DEPT 
+
+*3.   WAQTD NUMBER OF EMP EARNING SAL MORE THAN 1200 IN EACH JOB 
+*      AND THE TOTAL SAL NEEDED TO PAY EMP OF EACH JOB MUST EXCEES 3800.
+
+*/
+//?---------------1
+db.emp.aggregate([{
+  $match: {
+    job: "clerk"
+  }
+}, {
+  $group: {
+    _id: "$deptno",
+    count: { $sum: 1 }
+  }
+}, {
+  $match: {
+    count: { $gte: 2 }
+  }
+}, {
+  $project: {
+    _id: 0,
+    deptno: "$_id",
+    count: 1
+  }
+}])
+//?---------------2
+db.emp.aggregate([{
+  $group: {
+    _id: "$deptno",
+    totalSal: { $sum: "$sal" },
+    count: { $sum: 1 }
+  }
+}, {
+  $match: {
+    count: { $gte: 4 }
+  }
+}, {
+  $project: {
+    _id: 0,
+    deptno: "$_id",
+    totalSal: 1
+  }
+}])
+
+//!--------3
+
+db.emp.aggregate([
+  { $match: { sal: { $gt: 1200 } } },
+  {
+    $group: {
+      _id: "$job",
+      totalSal: { $sum: "$sal" },
+      count: { $sum: 1 }
+    }
+  },
+  { $match: { totalSal: { $gt: 3800 } } },
+  { $project: { _id: 0, deptno: "$_id", count: 1 } }]);
+
+//todo   --------assignment on having clause
+
+// 4.WAQTD DEPTNO AND NUMBER OF EMP WORKING ONLY IF THERE ARE 2 EMP WORKING IN EACH DEPT AS MANAGER .
+// 5.WAQTD JOB AND MAX SAL OF EMP IN EACH JOB IF THE MAX SAL EXCEEDS 2600
+// 6.WAQTD THE SALARIES WHICH ARE REPEATED IN EMP TABLE
+// 7.WAQTD THE HIREDATE WHICH ARE DUPLICATED IN EMP TABLE 
+// 8.WAQTD AVG SALARY OF EACH DEPT IF AVG SAL IS LESS THan 3000	
+// 9.WAQTD DEPTNO IF THERE ARE ATLEAST 3 EMP IN EACH DEPT WHOS NAME HAS CHAR 'A' OR 'S' .
+// 10.WAQTD MIN AND MAX SALARIES OF EACH JOB IF MIN SAL IS MORE THAN 1000 AND MAX SAL IS LESS THAN 5000.
+
+
+//todo---------------------------$sort
+
+//? $sort method it is used to arrange the record in acsending order (1)or descending order(-1)
+//?-waqtd name of the employees and arrange the name in descending order
+db.emp.aggregate([
+  {
+    $project: {
+      ename: 1, _id: 0
+    }
+  },
+  {
+    $sort: {
+      ename: -1
+    }
+  }
+]);
+
+//? waqtd all the salary of the employees in ascending order
+db.emp.aggregate([
+  {
+    $project: {
+      salary: "$sal", _id: 0
+    }
+  },
+  {
+    $sort: {
+      sal: 1
+    }
+  }
+])
+//? waqtd unique salary of the empoyees and arrange the salary in desc
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$sal"
+    }
+  }, {
+    $project: {
+      salary: "$_id",
+      _id: 0
+    }
+  }, {
+    $sort: { salary: -1 }
+  }
+])
+
+//?  waqtd first maximum salary.
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$sal"
+    }
+  }, {
+    $project: {
+      salary: "$_id",
+      _id: 0
+    }
+  }, {
+    $sort: { salary: -1 }
+  }, {
+    $limit: 1
+  }
+]);
+
+//? waqtd first min salary
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$sal"
+    }
+  }, {
+    $project: {
+      salary: "$_id",
+      _id: 0
+    }
+  }, {
+    $sort: { salary: 1 }
+  }, {
+    $limit: 1
+  }
+]);
+
+//? waqtd 2nd maximum salary
+
+//$skip:
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$sal"
+    }
+  }, {
+    $sort: { _id: -1 }
+  }, {
+    $skip: 1
+  }, {
+    $limit: 1
+  }, {
+    $project: {
+      "second_max_salary": "$_id",
+      _id: 0
+    }
+  }
+]);
+
+//? waqtd number of employee and desigination of all the emp in each deptno
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$deptno",
+      count: { $sum: 1 },
+      job: { $push: "$job" },
+      uniquejob: { $addToSet: "$job" }
+    }
+  }
+])
+
+//? ---------- aggeregate() & find()
+
+// 61.WAQTD 2ND  MINIMUM SALARY 
+// 62.WAQTD 5TH MAXIMUM SALARY 
+// 63.WAQTD NAME OF THE EMPLOYEE EARNING 3RD MAXIMUM SALARY 
+// 64.WAQTD EMPNO OF THE EMPLOYEE EARNING 2D MAXIMUM SALARY 
+
+db.emp.aggregate([
+  {
+    $group: {
+      _id: "$sal"
+    }
+  }, {
+    $sort: { _id: -1 }
+  }, {
+    $skip: 1
+  }, {
+    $limit: 1
+  }, {
+    $lookup: {
+      from: "emp",
+      localField: "_id",
+      foreignField: "sal",
+      as: "2nd max details"
+    }
+  }
+])
+
+// 65.WAQTD  NAME OF AN EMPLOYEE GETTING 4TH MAX SAL
+// 66.WAQTD DETAILS OF THE EMPLOYEE WHO WAS HIRED 2nd
+// 67.WAQTD NAME OF THE EMPLOYEE HIRED BEFORE THE LAST EMPLOYEE
+//? 68.WAQTD LOC OF THE EMPLOYEE WHO WAS HIRED FIRST 
+// 69.WAQTD DETAILS OF THE EMPLOYEE EARNING 7TH MINIMUM SALARY 
+//? 70.WAQTD DNAME OF EMPLOYEE GETTING 2ND MAXIMUM SALARY .
+
+
+
+
+
+
+//todo------------------------$lookup---------------------------
+
+//? -> $lookup is also collected a join
+//?--> $lookup is used to join  the multiple collection/table
+//?-> $lookup is used to display the data from different different collections data in single
+
+//!  syntax:
+
+{
+  $lookup: {
+    from: "collection"      //new collection name 
+    foreignFeild: ""        // new collection field name 
+    localField: ""          // current collection field name 
+    as: "alias_name"        // storeing field name
+  }
+}
+
+//!waqtd details of all the employees and depts 
+
+db.emp.aggregate([{
+  $lookup: {
+    from: "dept",
+    foreignFeild: "deptno",
+    localField: "deptno",
+    as: "dept_details"
+  }
+}])
+
+//? waqtd ename and dname of all the employees 
+
+//? when ever there is array of object we need to remove the array
+//? to remove the array ---> we can use $unwind
+db.emp.aggregate([{
+  $lookup: {
+    from: "dept",
+    foreignField: "deptno",
+    localField: "deptno",
+    as: "dept_details"
+  }
+},
+{
+  $unwind: "$dept_details"
+},
+{
+  $project: {
+    ename: 1,
+    dname: "$dept_details.dname",
+    _id: 0
+  }
+}
+])
+
+
+//! waqtd name and location of the employees ?
+
+
+db.emp.aggregate([
+  {
+    $lookup: {
+      from: "dept",
+      foreignField: "deptno",
+      localField: "deptno",
+      as: "dept"
+    }
+  }, {
+    $unwind: "$dept"
+  }, {
+    $project: {
+      ename: 1,
+      location: "$dept.loc",
+      _id: 0
+    }
+  }
+])
+
+
+//? waqtd all the employees and managers details 
+
+db.emp.aggregate([
+  {
+    $lookup: {
+      from: "emp",
+      foreignField: "empno",
+      localField: "mgr",
+      as: "mgr_details"
+    }
+  }
+]);
+
+//? waqtd ename , and manager name of all the employees
+db.emp.aggregate([
+  {
+    $lookup: {
+      from: "emp",
+      foreignField: "empno",
+      localField: "mgr",
+      as: "Manager"
+    }
+  },
+  { $unwind: "$Manager" },
+  { $project: { ename: 1, _id: 0, Manager: "$Manager.ename" } }]);
+
+//? Waqtd employee name ,manager name ,managers managers name of all the employees
+
+db.emp.aggregate([
+  {
+    $lookup: {
+      from: "emp",
+      foreignField: "empno",
+      localField: "mgr",
+      as: "e2"
+    }
+  }, {
+    $unwind: "$e2"
+  }, {
+    $lookup: {
+      from: "emp",
+      foreignField: "empno",
+      localField: "e2.mgr",
+      as: "e3"
+    }
+  }, {
+    $unwind: "$e3"
+  }, {
+    $project: {
+      ename: 1,
+      _id: 0,
+      Managername: "$e2.ename",
+      ManagerOfManagername: "$e3.ename"
+    }
+  }
+])
+//                   e1                       e2
+//? 1.WAQTD NAME OF THE EMPLOYEE AND HIS MANAGER'S NAME 
+//?  IF EMPLOYEE IS WORKING AS CLERK
+//                 e1
+
+db.emp.aggregate([
+  {
+    $match: {
+      job: "clerk"
+    }
+  }, {
+    $lookup: {
+      from: "emp",
+      foreignField: "empno",
+      localField: "mgr",
+      as: "e2"
+    }
+  }, {
+    $unwind: "$e2"
+  }, {
+    $project: {
+      ename: 1,
+      managesname: "$e2.ename",
+      _id: 0
+    }
+  }
+])
+
+//? 2.WAQTD NAME OF THE EMPLOYEE AND MANAGER'S DESIGNATION 
+//?    IF MANAGER WORKS IN DEPT 10 OR 20
+//             e2 
+
+db.emp.aggregate([
+  {
+    $lookup:
+    {
+      from: "emp",
+      foreignField: "empno",
+      localField: "mgr",
+      as: "e2"
+    }
+  },
+  { $unwind: "$e2" },
+  { $match: { "e2.deptno": { $in: [10, 20] } } },
+  { $project: { ename: 1, mg_job: "$e2.job" } }])
+//            e1                 e1              e2            e2                 
+//? 3.WAQTD NAME OF THE EMP ,emp salary AND manager name ,MANAGERS SALARY 
+//?   IF EMPLOYEE AND MANAGER BOTH EARN MORE THAN 2300
+//  e1           e2             
+
+db.emp.aggregate([
+  {
+    $lookup: {
+      from: "emp",
+      foreignField: "empno",
+      localField: "mgr",
+      as: "e2"
+    }
+  }, {
+    $unwind: "$e2"
+  }, {
+    $match: {
+      $and: [
+        { sal: { $gt: 2300 } },
+        { "e2.sal": { $gt: 2300 } }
+      ]
+    }
+  }, {
+    $project: {
+      ename: 1,
+      sal: 1,
+      managersname: "$e2.ename",
+      managerssal: "$e2.sal",
+      _id: 0
+    }
+  }
+])
+
+//!----------------------assignment
+
+/*
+
+1.NAME OF THE EMPLOYEE AND HIS LOCATION OF ALL THE EMPLOYEES .
+2.WAQTD DNAME AND SALARY FOR ALL THE EMPLOYEE WORKING IN 
+ACCOUNTING.
+3.WAQTD DNAME AND ANNUAL SALARY FOR ALL EMPLOYEES WHOS SALARY 
+IS MORE THAN 2340
+4.WAQTD ENAME AND DNAME FOR EMPLOYEES HAVING CAHARACTER 'A' 
+IN THEIR DNAME 
+5.WAQTD ENAME AND DNAME FOR ALL THE EMPLOYEES WORKING AS SALESMAN
+6.WADTD DNAME AND JOB FOR ALL THE EMPLOYEES WHOS JOB AND DNAME 
+STARTS WITH CHARACTER 'S'
+7.WAQTD DNAME AND MGR NO FOR EMPLOYEES REPORTING TO 7839
+8.WAQTD DNAME AND HIREDATE FOR EMPLOYEES HIRED AFTER 83 INTO 
+ACCOUNTING OR RESEARCH DEPT 
+9.WAQTD ENAME AND DNAME OF THE EMPLOYEES WHO ARE GETTING COMM
+IN DEPT 10 OR 30 
+10.WAQTD DNAME AND EMPNO FOR ALL THE EMPLOYEES WHO'S EMPNO ARE 
+(7839,7902) AND ARE WORKING IN LOC NEW YORK.
+*/
+
+//!-----------------------assignment
+
+/*
+4.WAQTD EMP NAME AND MANAGER'S HIREDATE IF EMPLOYEE WAS HIRED BEFORE1982
+5.WAQTD EMP NAME AND MANAGER'S COMM IF EMPLOYEE WORKS AS SALESMAN AND MANAGER WORKS IN DEPT 30 
+6.WAQTD EMP NAME AND MANAGER NAME AND THEIR SALARIES IF EMPLOYEE EARNS MORE THAN MANAGER
+7.WAQTD EMP NAME AND HIREDATE , MANAGER NAME AND HIREDATE IF 
+MANAGER WAS HIRED BEFORE EMPLOYEE
+8.WAQTD EMP NAME AND MANAGER NAME IF BOTH ARE WORKING IN SAME JOB
+9.WAQTD EMP NAME AND MANAGER NAME IF MANAGER IS WORKING AS ACTUAL MANAGER
+10.WAQTD EMP NAME AND MANAGER NAME ALONG WITH THEIR ANNUAL SALARIES IF EMPLOYEE WORKS IN DEPT 10 , 20 AND MANAGER'S SAL IS GREATER THAN EMPLOYEES SALARY . 
+11.WAQTD EMPLOYEE'S NAME AND MANAGER'S DESOGNATION FOR ALL THE EMPLOYEES
+12.WAQTD EMPLOYEE'S NAME AND MANAGER'S SALARY FOR ALL THE EMPLOYEES IF MANAGER'S SALARY ENDS WITH 50 
+*/
+
+
+//? ----CRUD :
+
+//? UPDATE
+
+//? updateOne() , updateMany()
+
+//? updataOne()
+
+//? by using updateOne() we can update only one document
+
+//! syntax:      db.collection_name.updateOne({filter-cond},{update-value},{upsert:flase});
+//? when you update the values atomic operator is required
+
+//? atomic operator is--->$set
+//?  {$set:{exp1,exp2....}}
+db.customer.updateOne({ _id: 3 }, { $set: { name: "deepa" } });
+
+//!     _id: 2, name: '^ananya'-----> 'ananya'
+
+db.customer.updateOne({ _id: 2 }, { $set: { name: "ananya" } });
+
+//todo ------------how to add a new field in document
+
+db.customer.updateOne({ name: "John" }, { $set: { quantity: "2kg" } });
+
+// !  update + insert ----> upsert 
+
+//? upsert it will check filed first if the field is exists the values is update 
+//? if the field is not exists the filed and values or inserted
+
+db.customer.updateOne({ _id: 7 }, { $set: { quantity: "2kg" } }, { upsert: true });
+//todo-------------------------updateMany()
+//? by using updateMany() we can update many document
+
+//! syntax:      db.collection_name.updateMany({filter-cond},{update-value},{upsert:flase});
+
+//? whos age is grate the 32 and a new filed -->price avg---> 200/-
+
+db.customer.updateMany({ age: { $gt: 32 } }, { $set: { price: 200 } });
+
+//? for every customers andd new field --> isavaiable:true 
+
+db.customer.updateMany({}, { $set: { isavaiable: true } })
+
+//todo-----------> rename the field 
+
+//! $rename --> it is used to rename the exists filed in the document
+
+//?    syntax:   {$rename:{"old_field_name":"new_field_name"}}
+
+db.customer.updateMany({}, { $rename: { "isavaiable": "IsAvaliable" } });
+
+db.customer.updateMany({ _id: 5 }, { $set: { name: "suhan" } });
+
+//todo -------------how to delete a particular field in a document
+
+//? $unset ---> it is used to a particual field in the document
+//? syntax:   {$unset:{"field_name":1}}
+
+db.customer.updateMany({ _id: 4 }, { $unset: { price: 1 } })
+
+db.customer.updateMany({ _id: 3 }, { $unset: { "address.state": 1 } });
+
+//?----> in deepa address-->state  : "KA"
+
+db.customer.updateOne({ _id: 3 }, { $set: { "address.state": "KA" } });
+
+//todo----------------- delete 
+//?  deleteOne(), deleteMany()
+
+//? deleteOne({});
+
+//?-------> _id:6 delete the paricular document 
+
+//! syntax:    db.collection_name.deleteOne({filter-cond});
+
+db.customer.deleteOne({ _id: 7 });
+
+//! syntax:    db.collection_name.deleteMany({filter-cond});
+//? deleteMany() --> delete many of the document in the collection
+
+//!      who _id:1,3,5  delete all the documents
+
+db.customer.deleteMany({ _id: { $in: [1, 3, 5] } });
+
+//?  -----> create the datadase ---> flipkart
+//?  -----> create the collection name is --> customer 
+
+//!   field 
+{
+  _id: "C001",
+    name: "hari",
+      age: 20,
+        phone: 123467890,
+          gmail: "xyz@gmail.com",
+            address: {
+    "street": "street1",
+      "city": "banglore",
+        "state": "KA",
+                       }
+}
+
+//----4 doc
+
+db.customer.insertMany([
+  {
+    _id: "C001",
+    name: "hari",
+    age: 20,
+    phone: 9876543210,
+    gmail: "hari@gmail.com",
+    address: {
+      "street": "street1",
+      "city": "banglore",
+      "state": "KA",
+    }
+  }, {
+    _id: "C002",
+    name: "krishna",
+    age: 25,
+    phone: 9876543211,
+    gmail: "krishna@gmail.com",
+    address: {
+      "street": "street2",
+      "city": "banglore",
+      "state": "KA",
+    }
+  },
+  {
+    _id: "C003",
+    name: "manu",
+    age: 30,
+    phone: 9876543212,
+    gmail: "manu@gmail.com",
+    address: {
+      "street": "street3",
+      "city": "banglore",
+      "state": "KA",
+    }
+  }
+]);
+
+db.product.insertMany([
+  {
+    _id: "P001",
+    name: "iphone15",
+    price: 65000,
+    color: "blue",
+    cid: "C003"
+  }, {
+    _id: "P002",
+    name: "samsung",
+    price: 45000,
+    color: "red",
+    cid: "C001"
+  },
+  {
+    _id: "P003",
+    name: "google pixel",
+    price: 55000,
+    color: "black"
+  }
+])
+
+//?  many customers can by one product --->  many to one 
+//?  one product can get many customers --> one to many
+//?   one customers can by one product----> one to one
+//?  waqtd cname and the product name of all the customer 
+
+//           customer       product 
+
+db.customer.aggregate([
+  {
+    $lookup: {
+      from: "product",
+      foreignField: "cid",
+      localField: "_id",
+      as: "product"
+    }
+  }, {
+    $unwind: "$product"
+  }, {
+    $project: {
+      _id: 0,
+      customerName: "$name",
+      productName: "$product.name"
+    }
+  }
+]);
+
+//?------------------------------29/08/2024
+
+//todo-------------------Field Update Operators
+
+//todo---------- $inc
+//?The $inc operator increments a field by a specified value.
+//!syntax:       { $inc: { <field1>: <amount1>, <field2>: <amount2>, ... } }
+
+db.customer.updateMany({ _id: 4 }, { $inc: { price: 400 } });
+
+//? ----------500---> -100
+
+db.customer.updateMany({ _id: 4 }, { $inc: { price: -100 } });
+
+//todo---------- $mul
+//? Multiply the value of a field by a number. 
+//? To specify a $mul expression, use the following prototype:
+
+//!syntax: { $mul: { <field1>: <number1>, ... } }
+
+//increse the price into 2twice
+
+100 * 2
+
+db.customer.updateMany({ _id: 2 }, { $multiply: { price: 2 } });
+
+
+
+
+//todo-----------------------Array Update Operators
+
+
+/*
+
+todo------------$push
+*        The $push operator appends a specified value to an array.
+! syntax:
+?       { $push: { <field1>: <value1>, ... } }
+
+*/
+db.customer.updateMany({}, { $push: { fruits: "orange" } })
+//? -----> apple,jack fruit
+db.customer.updateMany({}, { $push: { fruits: { $in: ["apple", "jack fruit"] } } }) //! wrong
+
+
+
+/*
+todo---------------------- $pop
+*     The $pop operator removes the first or last element of an array. 
+*      Pass $pop a value of -1 to remove the first element of an array
+*       and 1 to remove the last element in an array.
+
+! syntax:
+
+?        { $pop: { <field>: <-1 | 1>, ... } }
+
+*/
+//? remome the last values of an fruits filed in customer collection 
+
+db.customer.updateMany({}, { $pop: { fruits: 1 } });
+
+//? remome the first values of an fruits filed in customer collection 
+
+db.customer.updateMany({}, { $pop: { fruits: -1 } });
+
+
+/*
+todo---------------$pull
+*       The $pull operator removes from an existing array all instances of a value
+*        or values that match a specified condition.
+!    syntax:
+?        { $pull: { <field1>: <value1>,  <field2>: <value|condition>, ... } }
+
+*/
+db.customer.updateMany({ _id: 2 }, { $pull: { fruits: "apple" } })
+
+
+
+
+/*
+
+todo---------------->$each
+
+*            The $each modifier is available for use with the $addToSet operator and the $push operator.
+!syntax:
+?    { $addToSet: { <field>: { $each: [ <value1>, <value2> ... ] } } }
+!syntax:
+? -----> apple,jack fruit,orange
+
+?     { $push: { <field>: { $each: [ <value1>, <value2> ... ] } } }
+*/
+
+//? $push ---> it will push the values inside array with dulicate
+
+db.customer.updateMany({ _id: 2 }, { $push: { fruits: { $each: ["apple", "jack fruit", "orange"] } } })
+
+//?$addToset ---> it will push the values inside array without dulicate
+
+db.customer.updateMany({ _id: 4 }, { $addToSet: { fruits: { $each: ["apple", "jack fruit", "orange"] } } })
+
+/*
+
+
+todo--------- capped collection
+*       capped collection is a special type of collection that automatically removes
+*        the oldest documents when the collection reaches
+
+ */
+//!   syntax
+db.createCollection("myCollection", {
+  capped: true,
+  size: 5242880,  // Size in bytes (e.g., 5 MB)
+  max: 5000       // Optional: Maximum number of documents
+})
+
+db.createCollection("stud", {
+  capped: true,
+  size: 500,
+  max: 2
+});
+
+db.createCollection("stud123", {
+  capped: true,
+  size: 1,
+  max: 1
+});
+
+//? it is used to check wether it is capped collection or not 
+
+//?  isCapped()
+//!----?     db.collection_name.isCapped();
+db.stud.isCapped();
+
+db.stud.insertOne({ name: "shai" });
+
+
+
+//todo---------------- how to create index:
+
+/*
+*     Indexes make MongoDB queries more efficient by limiting document scans.
+*     Without indexes, MongoDB scans every document in a collection.
+*     While indexes boost query performance, they increase storage overhead and can slow down write operations.
+   */
+db.collection_name.createIndexes({ field_name: 1 | -1 });
+
+db.emp.createIndex({ ename: 1 });
+
+db.emp.find({ ename: "king" }).explain('executionStats');
+
+//todo----------------- how get the index
+db.collection_name.getIndexes();
+
+//todo -----------------how to drop the index
+db.collection_name.dropIndexes(field_name);
+
+db.emp.dropIndex('indexname');
+//?       or
+db.emp.dropIndexes();
+
+
+//? methods in aggrigation or find()
+
+//todo----> $strLenCP (aggregation);
+//? it is used to find the length of the string
+//!     {$strLenCP:field_name}
+db.emp.find({}, { length: { $strLenCP: "$ename" }, ename: 1, _id: 0 });
+// with using $regex whos name contain 4 character?
+db.emp.aggregate([{
+  $addFields: { length: { $strLenCP: "$ename" } }
+}, {
+  $match: {
+    length: 4
+  }
+}, {
+  $project: {
+    ename: 1,
+    _id: 0
+  }
+}]);
+
+// create mobile--> collection_name
+db.moblies.insertMany([
+  {
+    _id: "pid001",
+    name: "iphone",
+    price: 999.99,
+    brand: "APplE",
+    color: "red",
+    madein: "CALIFORNIA"
+  },
+  {
+    _id: "pid002",
+    name: "samsung",
+    price: 500.49,
+    brand: "SaMsUNG",
+    color: "black",
+    madein: "KOREA"
+  },
+  {
+    _id: "pid003",
+    name: "MI",
+    price: 300.99,
+    brand: "rEDmi",
+    color: "white",
+    madein: "CHINA"
+  }
+])
+
+db.moblies.find({}, { brand: 1, _id: 0 })
+//TODO----> $toLower (aggregation);
+//? it is used to convert the string to lower case
+//! SYNTAX:
+//!     {$toLower:"$field_name"}
+//?     {brand_L:{$toLower:"$brand"}}
+db.moblies.find({}, { brand_L: { $toLower: "$brand" }, _id: 0, brand: 1 })
+
+
+//todo----> $toUpper (aggregation);
+//? it is used to convert the string to lower case
+//! SYNTAX:
+//!     {$toUpper:"$field_name"}
+//?    {brand_U:{$toUpper:"$brand"}}
+
+db.moblies.find({}, { brand_U: { $toUpper: "$brand" }, _id: 0, brand: 1 })
+
+//todo----> $concat (aggregation);
+//? it is used to concatenate the string
+//! SYNTAX:
+//!     {$concat: ["$field1", "$field2"]}
+
+//? merge the 2 filed of name and color 
+db.moblies.find({}, { newfiled: { $concat: ["$name", ' ', "$color"] } });
+db.cust.insertMany([
+  {
+    fname: "suhan",
+    lname: " vashisht",
+    email: "suhansh@gmail.com"
+  },
+  {
+    fname: "arun",
+    lname: "kumar",
+    email: "arun@gmail.com"
+  }
+]);
+
+//? ----> waqtd fullname of all the customers  
+
+db.cust.find({}, { fullname: { $concat: ["$fname", ' ', "$lname"] }, _id: 0 });
+
+
+
+//? every mobile has discount ---> 350
+
+db.mobiles.find({}, { discount_price: { $subtract: ["$price", 350] }, _id: 0 })
+//todo----> $abs (aggregation);
+//? it is used to get the absolute value of a number
+//! SYNTAX:
+//!     {$abs: "$field_name"}
+db.mobiles.find({}, { discount_price: { $abs: { $subtract: ["$price", 350] } }, _id: 0 })
+
+//todo----> $round (aggregation);
+//? it is used to round the number to the nearest integer
+//! SYNTAX:
+//!     {$round: ["$field_name",scale]};
+
+db.mobiles.find({}, { round_price: { $round: "$price" } });
+db.mobiles.find({}, { round_price: { $round: ["$price", 0] } });
+db.mobiles.find({}, { round_price: { $round: ["$price", 1] }, price: 1, _id: 0 });
+
+//?----> $trunc (aggregation);
+//?  it is used to round the number to the least integer
+//!     {$trunc: ["$field_name",scale]}
+db.mobiles.find({}, { trunc_price: { $trunc: "$price" } });
+
+
+
+//?----> $substr (aggregation);
+//? it is used to extract a part of string.
+//!     {$substr: ["string",start_position,length]}
+//?    C     A      L     I      F     O     R     N       I       A
+//!    0     1      2     3      4     5     6     7       8       9
+//?   cal---> "california" ,0,3
+db.mobiles.find({}, { exract_string: { $substr: ["$madein", 0, 3] } });
+//?   FORN ---> "california" ,4,4
+db.mobiles.find({}, { exract_string: { $substr: ["$madein", , 4] } })
+//? waqtd last character of madein
+db.mobiles.find({}, { exract_string: { $substr: ["$madein", { $subtract: [{ $strLenCP: "$madein" }, 1] }, 4] } })
+
+
+
+
+
+
+//how to import the document :
+//? how to import the document from json file
+// mongoimport -d database_name -c collection_name --type type_of_data --file path
+// -jsonArray --drop
+
+mongoimport - d scott - c persons--type json --file "C:\Users\DHARMADURAI\OneDrive\Desktop\mongodb-MSFMOD-E3\persons\persons.json"  --jsonArray--drop
+
+//? how to import the document from csv file
+
+// mongoimport -d database_name -c collection_name --type type_of_data --file path
+// --headerline --drop
+
+mongoimport - d scott - c salesdoc--type csv --file "C:\Users\DHARMADURAI\OneDrive\Desktop\mongodb-MSFMOD-E3\SaleData\SaleData.csv" --headerline--drop
+
+
+//?  mongodb database it iterates 20 documents 
+//?  it is used to iterate the alll document in the collection 
+
+db.persons.find().forEach(function (x) {
+  console.log(x);
+});
+
+db.persons.find().forEach((x) => console.log(x));
+
+
+//? how to copy the collection 
+
+//? back_emp data 
+
+db.emp.find().forEach((doc) => { db.backup_emp.insertMany([doc]) });
+
+db.emp.find({}, { ename: 1 }).forEach((doc) => { db.backup.insertMany([doc]) });
+
+
+
+//? validators 
+
+
+db.createCollection("student", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      title: "Student Object Validation",
+      required: ["name", "year", "gpa"],
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "'name' must be a string and is required"
+        },
+        year: {
+          bsonType: "int",
+          description: "'year' must be an integer and is required"
+        },
+        gpa: {
+          bsonType: ["double"],
+          description: "'gpa' must be a double if the field exists"
+        }
+      }
+    }
+  }
+})
