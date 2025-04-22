@@ -1,0 +1,116 @@
+// waqtd number of employess 
+
+db.emp.aggregate([
+    {
+        $group:{
+            _id:null,
+            total_no_emp:{$sum:1}
+        }
+    }
+])
+// waqtd number of employess in each deptno
+
+db.emp.aggregate([
+    {
+        $group:{
+            _id:"$deptno",
+            total_no_emp:{$sum:1}
+        }
+    },
+    {
+        $project:{
+            deptno:"$_id",
+            total_no_emp:1,
+            _id:0
+        }
+    }
+])
+
+
+// waqtd number of employess in each deptno atleast 4 
+
+db.emp.aggregate([
+    {
+        $group:{
+            _id:"$deptno",
+            total_no_emp:{$sum:1}
+        }
+    },
+    {
+        $project:{
+            deptno:"$_id",
+            total_no_emp:1,
+            _id:0
+        }
+    },
+    {
+        $match :{
+            total_no_emp :{$gte:4}
+        }
+    }
+])
+
+
+// waqtd max salary ,min sal of all the emp's 
+// in each desigination if the max salary is less then 3000
+
+
+db.emp.aggregate([
+    {
+        $group:{
+            _id:"$job",
+            max_sal:{$max:"$sal"},
+            min_sal:{$min:"$sal"}
+        }
+    },
+    {
+        $match:{
+            max_sal:{$lt:3000}
+        }
+    },
+    {
+        $project:{
+            max_sal:1,
+            min_sal:1,
+            job:"$_id",
+            _id:0
+        }
+    }
+]);
+
+
+// waqtd total salary in each deptno if the name contain character
+// 'a' and max_sal should be less then 6000
+
+db.emp.aggregate([
+    {$match:{ename:{$regex:/.*a.*/}}},
+    {$group:{
+        _id:"$deptno",
+        max_sal:{$max:"$sal"},
+        total_sal:{$sum:"$sal"}
+    }},
+    {
+        $match:{
+            max_sal:{$lt:6000}
+        }
+    },
+    {
+        $project:{
+            deptno:"$_id",
+            total_sal:1,
+            _id:0
+        }
+    }
+]);
+
+
+1.WAQTD DNO AND NUMBER OF EMP WORKING IN EACH DEPT IF THERE ARE ATLEAST 2 CLERKS IN EACH DEPT 
+2.WAQTD DNO AND TOTAL SAALARY NEEDED TO PAY ALL EMP IN EACH DEPT IF THERE ARE ATLEAST 4 EMP IN EACH DEPT 
+3.WAQTD NUMBER OF EMP EARNING SAL MORE THAN 1200 IN EACH JOB AND THE TOTAL SAL NEEDED TO PAY EMP OF EACH JOB MUST EXCEES 3800
+4.WAQTD DEPTNO AND NUMBER OF EMP WORKING ONLY IF THERE ARE 2 EMP WORKING IN EACH DEPT AS MANAGER .
+5.WAQTD JOB AND MAX SAL OF EMP IN EACH JOB IF THE MAX SAL EXCEEDS 2600
+6.WAQTD THE SALARIES WHICH ARE REPEATED IN EMP TABLE
+7.WAQTD THE HIREDATE WHICH ARE DUPLICATED IN EMP TABLE 
+8.WAQTD AVG SALARY OF EACH DEPT IF AVG SAL IS LESS THan 3000	
+9.WAQTD DEPTNO IF THERE ARE ATLEAST 3 EMP IN EACH DEPT WHOS NAME HAS CHAR 'A' OR 'S' .
+10.WAQTD MIN AND MAX SALARIES OF EACH JOB IF MIN SAL IS MORE THAN 1000 AND MAX SAL IS LESS THAN 5000.
