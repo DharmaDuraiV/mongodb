@@ -1,0 +1,322 @@
+Certainly! Let's go through each operator with a collection and three examples.
+
+### Collection: **`orders`**
+
+```js
+db.orders.insertMany([
+  {
+    _id: 1,
+    customer: "John",
+    items: [
+      { name: "Apple", quantity: 2 },
+      { name: "Banana", quantity: 5 },
+    ],
+    status: "Delivered",
+  },
+  {
+    _id: 2,
+    customer: "Alice",
+    items: [
+      { name: "Orange", quantity: 1 },
+      { name: "Grapes", quantity: 3 },
+    ],
+    status: "Shipped",
+  },
+  {
+    _id: 3,
+    customer: "Bob",
+    items: [
+      { name: "Mango", quantity: 2 },
+      { name: "Apple", quantity: 3 },
+    ],
+    status: "Pending",
+  },
+]);
+```
+
+---
+
+### 1. **`$` (Positional Operator)**
+
+* **Description**: The `$` operator acts as a placeholder to update the first array element that matches the query condition.
+
+#### Example 1: Update the quantity of `Apple` for `John`.
+
+```js
+db.orders.updateOne(
+  { "customer": "John", "items.name": "Apple" },
+  { $set: { "items.$.quantity": 3 } }
+);
+```
+
+#### Example 2: Update the status to `Delivered` for the order with `Grapes`.
+
+```js
+db.orders.updateOne(
+  { "items.name": "Grapes" },
+  { $set: { status: "Delivered" } }
+);
+```
+
+#### Example 3: Change the quantity of `Banana` to 10 in `Bob`'s order.
+
+```js
+db.orders.updateOne(
+  { "customer": "Bob", "items.name": "Banana" },
+  { $set: { "items.$.quantity": 10 } }
+);
+```
+
+---
+
+### 2. **`$[]` (Array Filter)**
+
+* **Description**: The `$[]` operator acts as a placeholder to update all elements in an array that match the query condition.
+
+#### Example 1: Increase the quantity of all items by 1 for `Alice`.
+
+```js
+db.orders.updateOne(
+  { "customer": "Alice" },
+  { $inc: { "items.$[].quantity": 1 } }
+);
+```
+
+#### Example 2: Set the `status` to `Shipped` for all orders with the `name` "Apple".
+
+```js
+db.orders.updateMany(
+  { "items.name": "Apple" },
+  { $set: { status: "Shipped" } }
+);
+```
+
+#### Example 3: Add `Mango` with a quantity of `5` for all customers who have `Banana`.
+
+```js
+db.orders.updateMany(
+  { "items.name": "Banana" },
+  { $push: { items: { name: "Mango", quantity: 5 } } }
+);
+```
+
+---
+
+### 3. **`$[<identifier>]` (Array Filters)**
+
+* **Description**: The `$[<identifier>]` operator acts as a placeholder to update array elements that match specific conditions defined in an array filter.
+
+#### Example 1: Update the quantity of `Apple` in the order if the quantity is less than 5.
+
+```js
+db.orders.updateOne(
+  { "customer": "John" },
+  {
+    $set: { "items.$[elem].quantity": 10 },
+    arrayFilters: [{ "elem.name": "Apple", "elem.quantity": { $lt: 5 } }]
+  }
+);
+```
+
+#### Example 2: Change the `name` of all items in `Bob`'s order where the `quantity` is greater than 2.
+
+```js
+db.orders.updateOne(
+  { "customer": "Bob" },
+  {
+    $set: { "items.$[elem].name": "Pineapple" },
+    arrayFilters: [{ "elem.quantity": { $gt: 2 } }]
+  }
+);
+```
+
+#### Example 3: Remove the `item` if its `quantity` is 0 in `Alice`'s order.
+
+```js
+db.orders.updateOne(
+  { "customer": "Alice" },
+  { $pull: { items: { quantity: 0 } } }
+);
+```
+
+---
+
+### 4. **`$addToSet`**
+
+* **Description**: The `$addToSet` operator adds an element to an array only if it does not already exist in the array (it prevents duplicates).
+
+#### Example 1: Add `Pineapple` to `John`'s order if it doesn't exist already.
+
+```js
+db.orders.updateOne(
+  { "customer": "John" },
+  { $addToSet: { items: { name: "Pineapple", quantity: 2 } } }
+);
+```
+
+#### Example 2: Add `Mango` to `Bob`'s order if it's not already in the array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Bob" },
+  { $addToSet: { items: { name: "Mango", quantity: 3 } } }
+);
+```
+
+#### Example 3: Add `Banana` to `Alice`'s order if it doesn't already exist.
+
+```js
+db.orders.updateOne(
+  { "customer": "Alice" },
+  { $addToSet: { items: { name: "Banana", quantity: 5 } } }
+);
+```
+
+---
+
+### 5. **`$pop`**
+
+* **Description**: The `$pop` operator removes the first or last item of an array.
+
+#### Example 1: Remove the last item from `John`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "John" },
+  { $pop: { items: 1 } }
+);
+```
+
+#### Example 2: Remove the first item from `Alice`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Alice" },
+  { $pop: { items: -1 } }
+);
+```
+
+#### Example 3: Remove the last item from `Bob`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Bob" },
+  { $pop: { items: 1 } }
+);
+```
+
+---
+
+### 6. **`$pull`**
+
+* **Description**: The `$pull` operator removes all elements in an array that match a specified query.
+
+#### Example 1: Remove `Banana` from `John`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "John" },
+  { $pull: { items: { name: "Banana" } } }
+);
+```
+
+#### Example 2: Remove all items with a quantity of 0 from `Alice`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Alice" },
+  { $pull: { items: { quantity: 0 } } }
+);
+```
+
+#### Example 3: Remove `Apple` from `Bob`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Bob" },
+  { $pull: { items: { name: "Apple" } } }
+);
+```
+
+---
+
+### 7. **`$push`**
+
+* **Description**: The `$push` operator adds an item to an array.
+
+#### Example 1: Add `Pineapple` to `John`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "John" },
+  { $push: { items: { name: "Pineapple", quantity: 2 } } }
+);
+```
+
+#### Example 2: Add `Apple` to `Bob`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Bob" },
+  { $push: { items: { name: "Apple", quantity: 2 } } }
+);
+```
+
+#### Example 3: Add `Mango` to `Alice`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Alice" },
+  { $push: { items: { name: "Mango", quantity: 5 } } }
+);
+```
+
+---
+
+### 8. **`$pullAll`**
+
+* **Description**: The `$pullAll` operator removes all instances of the specified values from an array.
+
+#### Example 1: Remove all occurrences of `Apple` and `Banana` from `John`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "John" },
+  { $pullAll: { items: [{ name: "Apple" }, { name: "Banana" }] } }
+);
+```
+
+#### Example 2: Remove all instances of `Orange` from `Alice`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Alice" },
+  { $pullAll: { items: [{ name: "Orange" }] } }
+);
+```
+
+#### Example 3: Remove all `Grapes` from `Bob`'s `items` array.
+
+```js
+db.orders.updateOne(
+  { "customer": "Bob" },
+  { $pullAll: { items: [{ name: "Grapes" }] } }
+);
+```
+
+---
+
+### Summary Table
+
+| Operator              | Description                                            | Example                                                                                |
+| --------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| **`$`**               | Updates the first matching array element.              | `{ $set: { "items.$.quantity": 10 } }`                                                 |
+| **`$[]`**             | Updates all elements in the array.                     | `{ $inc: { "items.$[].quantity": 1 } }`                                                |
+| **`$[<identifier>]`** | Updates array elements matching specific conditions.   | `{ $set: { "items.$[elem].quantity": 10 }, arrayFilters: [{ "elem.name": "Apple" }] }` |
+| **`$addToSet`**       | Adds elements to an array if they don't already exist. | `{ $addToSet: { items: { name: "Pineapple", quantity: 2 } } }`                         |
+| **`$pop`**            | Removes the first or last element of an array.         | `{ $pop: { items: 1 } }`                                                               |
+| **`$pull`**           | Removes elements from an array that match a query.     | `{ $pull: { items: { name: "Banana" } } }`                                             |
+| **`$push`**           | Adds an item to an array.                              | `{ $push: { items: { name: "Pineapple", quantity: 2 } } }`                             |
+| **`$pullAll`**        | Removes all matching values from an array.             | `{ $pullAll: { items: [{ name: "Apple" }, { name: "Banana" }] } }`                     |
+
+These examples show how you can use each operator with different types of collections and update scenarios. Let me know if you need further clarification or examples!
