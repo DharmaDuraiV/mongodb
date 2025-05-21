@@ -1,0 +1,359 @@
+Certainly! Below, I'll create a collection for each operator with three examples, illustrating each of the MongoDB update operators you requested.
+
+---
+
+### Collection: **`products`**
+
+Let's create a collection of products, each with fields like `name`, `price`, `stock`, `category`, `discount`, etc.
+
+```js
+db.products.insertMany([
+  {
+    _id: 1,
+    name: "Laptop",
+    price: 1000,
+    stock: 50,
+    category: "Electronics",
+    discount: 10,
+    createdAt: new Date("2022-01-01")
+  },
+  {
+    _id: 2,
+    name: "Phone",
+    price: 500,
+    stock: 30,
+    category: "Electronics",
+    discount: 5,
+    createdAt: new Date("2022-02-01")
+  },
+  {
+    _id: 3,
+    name: "Headphones",
+    price: 200,
+    stock: 100,
+    category: "Electronics",
+    discount: 0,
+    createdAt: new Date("2022-03-01")
+  }
+]);
+```
+
+---
+
+### 1. **`$currentDate`**
+
+* **Description**: Sets the value of a field to the current date or timestamp.
+
+#### Example 1: Set `lastUpdated` to the current date.
+
+```js
+db.products.updateOne(
+  { _id: 1 },
+  { $currentDate: { lastUpdated: true } }
+);
+```
+
+#### Example 2: Set `createdAt` as a timestamp.
+
+```js
+db.products.updateOne(
+  { _id: 2 },
+  { $currentDate: { createdAt: { $type: "timestamp" } } }
+);
+```
+
+#### Example 3: Set `lastChecked` to the current date.
+
+```js
+db.products.updateOne(
+  { _id: 3 },
+  { $currentDate: { lastChecked: true } }
+);
+```
+
+---
+
+### 2. **`$inc`**
+
+* **Description**: Increments or decrements the value of a field by a specified amount.
+
+#### Example 1: Increment `stock` by 10.
+
+```js
+db.products.updateOne(
+  { _id: 1 },
+  { $inc: { stock: 10 } }
+);
+```
+
+#### Example 2: Decrease `price` by 50.
+
+```js
+db.products.updateOne(
+  { _id: 2 },
+  { $inc: { price: -50 } }
+);
+```
+
+#### Example 3: Increase `discount` by 5.
+
+```js
+db.products.updateOne(
+  { _id: 3 },
+  { $inc: { discount: 5 } }
+);
+```
+
+---
+
+### 3. **`$min`**
+
+* **Description**: Only updates the field if the new value is less than the current field value.
+
+#### Example 1: Set `price` to 800 if it is less than the current value.
+
+```js
+db.products.updateOne(
+  { _id: 1 },
+  { $min: { price: 800 } }
+);
+```
+
+#### Example 2: Set `stock` to 25 if it is less than the current value.
+
+```js
+db.products.updateOne(
+  { _id: 2 },
+  { $min: { stock: 25 } }
+);
+```
+
+#### Example 3: Set `discount` to 5 if it is less than the current value.
+
+```js
+db.products.updateOne(
+  { _id: 3 },
+  { $min: { discount: 5 } }
+);
+```
+
+---
+
+### 4. **`$max`**
+
+* **Description**: Only updates the field if the new value is greater than the current field value.
+
+#### Example 1: Set `price` to 1200 if it is greater than the current value.
+
+```js
+db.products.updateOne(
+  { _id: 1 },
+  { $max: { price: 1200 } }
+);
+```
+
+#### Example 2: Set `stock` to 40 if it is greater than the current value.
+
+```js
+db.products.updateOne(
+  { _id: 2 },
+  { $max: { stock: 40 } }
+);
+```
+
+#### Example 3: Set `discount` to 10 if it is greater than the current value.
+
+```js
+db.products.updateOne(
+  { _id: 3 },
+  { $max: { discount: 10 } }
+);
+```
+
+---
+
+### 5. **`$mul`**
+
+* **Description**: Multiplies the value of a field by the specified amount.
+
+#### Example 1: Increase `price` by 1.1 (10% increase).
+
+```js
+db.products.updateOne(
+  { _id: 1 },
+  { $mul: { price: 1.1 } }
+);
+```
+
+#### Example 2: Double the `stock` value.
+
+```js
+db.products.updateOne(
+  { _id: 2 },
+  { $mul: { stock: 2 } }
+);
+```
+
+#### Example 3: Increase `discount` by a factor of 1.5.
+
+```js
+db.products.updateOne(
+  { _id: 3 },
+  { $mul: { discount: 1.5 } }
+);
+```
+
+---
+
+### 6. **`$rename`**
+
+* **Description**: Renames a field in a document.
+
+#### Example 1: Rename `category` to `type`.
+
+```js
+db.products.updateOne(
+  { _id: 1 },
+  { $rename: { "category": "type" } }
+);
+```
+
+#### Example 2: Rename `discount` to `promoDiscount`.
+
+```js
+db.products.updateOne(
+  { _id: 2 },
+  { $rename: { "discount": "promoDiscount" } }
+);
+```
+
+#### Example 3: Rename `createdAt` to `dateCreated`.
+
+```js
+db.products.updateOne(
+  { _id: 3 },
+  { $rename: { "createdAt": "dateCreated" } }
+);
+```
+
+---
+
+### 7. **`$set`**
+
+* **Description**: Sets the value of a field in a document. If the field does not exist, it will be created.
+
+#### Example 1: Set `stock` to 100.
+
+```js
+db.products.updateOne(
+  { _id: 1 },
+  { $set: { stock: 100 } }
+);
+```
+
+#### Example 2: Set `category` to "Accessories".
+
+```js
+db.products.updateOne(
+  { _id: 2 },
+  { $set: { category: "Accessories" } }
+);
+```
+
+#### Example 3: Set `discount` to 15.
+
+```js
+db.products.updateOne(
+  { _id: 3 },
+  { $set: { discount: 15 } }
+);
+```
+
+---
+
+### 8. **`$setOnInsert`**
+
+* **Description**: Sets the value of a field only if the operation results in an insert (upsert).
+
+#### Example 1: Set `createdAt` to the current date if the document is inserted.
+
+```js
+db.products.updateOne(
+  { _id: 4 },
+  { $setOnInsert: { createdAt: new Date() } },
+  { upsert: true }
+);
+```
+
+#### Example 2: Set `category` to "New" if the document is inserted.
+
+```js
+db.products.updateOne(
+  { _id: 5 },
+  { $setOnInsert: { category: "New" } },
+  { upsert: true }
+);
+```
+
+#### Example 3: Set `discount` to 20 if the document is inserted.
+
+```js
+db.products.updateOne(
+  { _id: 6 },
+  { $setOnInsert: { discount: 20 } },
+  { upsert: true }
+);
+```
+
+---
+
+### 9. **`$unset`**
+
+* **Description**: Removes the specified field from a document.
+
+#### Example 1: Remove the `discount` field.
+
+```js
+db.products.updateOne(
+  { _id: 1 },
+  { $unset: { discount: "" } }
+);
+```
+
+#### Example 2: Remove the `createdAt` field.
+
+```js
+db.products.updateOne(
+  { _id: 2 },
+  { $unset: { createdAt: "" } }
+);
+```
+
+#### Example 3: Remove the `stock` field.
+
+```js
+db.products.updateOne(
+  { _id: 3 },
+  { $unset: { stock: "" } }
+);
+```
+
+---
+
+### Summary Table
+
+| Operator           | Description                                                          | Example                                       |
+| ------------------ | -------------------------------------------------------------------- | --------------------------------------------- |
+| **`$currentDate`** | Sets a field to the current date or timestamp.                       | `{ $currentDate: { lastUpdated: true } }`     |
+| **`$inc`**         | Increments or decrements the value of a field.                       | `{ $inc: { stock: 10 } }`                     |
+| **`$min`**         | Updates the field only if the new value is less than the current.    | `{ $min: { price: 50 } }`                     |
+| **`$max`**         | Updates the field only if the new value is greater than the current. | `{ $max: { price: 1200 } }`                   |
+| **`$mul`**         | Multiplies the field value by the specified amount.                  | `{ $mul: { price: 1.1 } }`                    |
+| **`$rename`**      | Renames a field in a document.                                       | `{ $rename: { "category": "type" } }`         |
+| **`$set`**         | Sets a field to the specified value.                                 | `{ $set: { stock: 100 } }`                    |
+| **`$setOnInsert`** | Sets a field if the operation results in an insert (upsert).         | `{ $setOnInsert: { createdAt: new Date() } }` |
+| **`$unset`**       | Removes the specified field from a document.                         | `{ $unset: { discount: "" } }`                |
+
+---
+
+These examples cover a variety of use cases for each update operator in MongoDB. Let me know if you need further clarification or any additional examples!
