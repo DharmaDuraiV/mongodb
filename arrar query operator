@@ -1,0 +1,129 @@
+
+db.customer.insertMany([
+  {
+    _id: 1,
+    name: "John",
+    age: 25,
+    address: {
+      street: "123 Main St",
+      city: "Anytown",
+      state: "CA",
+      zip: "12345"
+    },
+    fruits: ["apple", "orange", "banana", "mango"]
+  },
+  {
+    _id: 2,
+    name: "^ananya",
+    age: 30,
+    address: {
+      street: "456 Elm St",
+      city: "Othertown",
+      state: "NY",
+      zip: "67890"
+    },
+    fruits: ["apple", "kiwi", "mango"]
+  },
+  {
+    _id: 3,
+    name: "$deepa",
+    age: 35,
+    address: {
+      street: "789 Oak St",
+      city: "bangalore",
+      state: "KA",
+      zip: "34567"
+    },
+    fruits: ["orange", "mango", "grapes"]
+  },
+  {
+    _id: 4,
+    name: "Rahul",
+    age: 40,
+    address: {
+      street: "901 Maple St",
+      city: "Mumbai",
+      state: "MH",
+      zip: "23456"
+    },
+    fruits: ["dragoon fruit"],
+  },
+  {
+    _id: 5,
+    name: "suhan$",
+    age: 45,
+    address: {
+      street: "1234 Pine St",
+      city: "chennai",
+      state: "TN",
+      zip: "56789"
+    },
+  }
+]);
+
+
+
+
+//todo ---------------array query operators
+//?  $all,$elemMatch,$size
+
+//* $all -- > operator
+//? the $all operator is used when the filed constist the array of values 
+//? $all op if all the values are exists in the field then it will executes.
+
+//!  syntax:     {array_name:{$all:[v1 , v2,...vn]}}
+
+//? waqtd details of all the customer who has purchase the fruit of apple and mango
+
+
+//? waqtd name ,state of all the customer who has purchase the fruit of kiwi and mango
+
+//? Find customers who purchased "orange", "mango", and "grapes"
+
+//? Find customers who purchased both "kiwi" and "apple"
+
+//todo -----------$elemMatch
+//? the $elemMatch operator is used when the filed constist the array of values
+//? $elemMatch op if any one of the values are exists in the field then it will executes.
+
+//! syntax: {array_name:{$elemMatch:{query1,query2...}}}
+
+
+db.students.insertMany([
+  {
+    _id: 1,
+    name: "Alice",
+    subjects: [
+      { name: "Math", score: 85 },
+      { name: "Science", score: 78 }
+    ]
+  },
+  {
+    _id: 2,
+    name: "Bob",
+    subjects: [
+      { name: "Math", score: 60 },
+      { name: "Science", score: 90 }
+    ]
+  }
+]);
+
+//? Find students who scored more than 80 in Science
+
+//? Find students who scored exactly 85 in Math
+
+//? Find students who scored more than 85 in any subject
+
+//todo----------------------------$size-------------------------------------
+
+//? $size it is used to find the array of values with the help of array size
+
+//!  syntax: {array_name:{$size:[number1]}}
+
+
+//? waqtd detials of all the customer who has purhased only 1 fruit
+
+
+//? waqtd detials of all the customer who has  purhased 3 fruit
+
+
