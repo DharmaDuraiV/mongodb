@@ -1,0 +1,450 @@
+
+
+  🔧  1. `$` (Positional Operator) 
+
+ Definition: 
+
+Updates the  first matching element  in an array that matches the query condition.
+
+ Syntax: 
+
+ { "<array>.$" : value }
+
+ or 
+
+{ "arrayField.$.subField": value }
+ 
+
+  📘 Example
+
+  db.students.insertMany( [
+   { "_id" : 1, "grades" : [ 85, 80, 80 ] },
+   { "_id" : 2, "grades" : [ 88, 90, 92 ] },
+   { "_id" : 3, "grades" : [ 85, 100, 90 ] }
+] )
+
+Example:
+db.students.updateOne(
+   { _id: 1, grades: 80 },
+   { $set: { "grades.$" : 82 } }
+)
+
+-------------------------------------------------------
+
+ Collection (`orders`): 
+
+
+ json
+{
+  "_id": 1,
+  "customer": "Alice",
+  "items": [
+    { "product": "Laptop", "quantity": 1 },
+    { "product": "Mouse", "quantity": 2 }
+  ]
+}
+ 
+
+ Update: 
+
+ js
+db.orders.updateOne(
+  { "items.product": "Laptop" },
+  { $set: { "items.$.quantity": 3 } }
+)
+ 
+
+ Result: 
+
+ json
+"items": [
+  { "product": "Laptop", "quantity": 3 },
+  { "product": "Mouse", "quantity": 2 }
+]
+ 
+-------------------------------------------------------
+ 
+
+  🔧  2. `$[]` (All Positional Operator) 
+
+ Definition: 
+Updates  all elements  in an array field.
+
+ Syntax: 
+
+ js
+{ "arrayField.$[]": value }
+ 
+
+  📘 Example
+
+ Collection (`orders`): 
+
+ json
+{
+  "_id": 2,
+  "customer": "Bob",
+  "items": [
+    { "product": "Book", "status": "pending" },
+    { "product": "Pen", "status": "pending" }
+  ]
+}
+ 
+
+ Update: 
+
+ js
+db.orders.updateOne(
+  { "customer": "Bob" },
+  { $set: { "items.$[].status": "shipped" } }
+)
+ 
+
+ Result: 
+
+ json
+"items": [
+  { "product": "Book", "status": "shipped" },
+  { "product": "Pen", "status": "shipped" }
+]
+ 
+
+ 
+
+  🔧  3. `$[<identifier>]` (Filtered Positional Operator) 
+
+ Definition: 
+Updates  specific array elements  based on a filter condition.
+
+ Syntax: 
+
+ js
+{
+  $set: { "arrayField.$[identifier].subField": value },
+  arrayFilters: [ { "identifier.condition": condition } ]
+}
+ 
+
+  📘 Example
+
+ Collection (`orders`): 
+
+ json
+{
+  "_id": 3,
+  "customer": "Carol",
+  "items": [
+    { "product": "Keyboard", "quantity": 4 },
+    { "product": "Monitor", "quantity": 7 }
+  ]
+}
+ 
+
+ Update: 
+
+ js
+db.orders.updateOne(
+  { _id: 3 },
+  { $set: { "items.$[item].discount": 10 } },
+  { arrayFilters: [ { "item.quantity": { $gt: 5 } } ] }
+)
+ 
+
+ Result: 
+
+ json
+"items": [
+  { "product": "Keyboard", "quantity": 4 },
+  { "product": "Monitor", "quantity": 7, "discount": 10 }
+]
+ 
+
+ 
+
+  🔧  4. `$addToSet` 
+
+ Definition: 
+Adds a value to an array  only if it doesn't already exist .
+
+ Syntax: 
+
+ js
+{ $addToSet: { arrayField: value } }
+ 
+
+  📘 Example
+
+ Collection (`users`): 
+
+ json
+{ "_id": 1, "username": "john", "tags": ["user"] }
+ 
+
+ Update: 
+
+ js
+db.users.updateOne(
+  { username: "john" },
+  { $addToSet: { tags: "admin" } }
+)
+ 
+
+ Result: 
+
+ json
+"tags": ["user", "admin"]
+ 
+
+ 
+
+  🔧  5. `$pop` 
+
+ Definition: 
+Removes the  first (`-1`) or last (`1`) element  of an array.
+
+ Syntax: 
+
+ js
+{ $pop: { arrayField: 1 or -1 } }
+ 
+
+  📘 Example
+
+ Collection (`blogs`): 
+
+ json
+{ "title": "Tech", "comments": ["Nice", "Helpful", "Thanks"] }
+ 
+
+ Update: 
+
+ js
+db.blogs.updateOne(
+  { title: "Tech" },
+  { $pop: { comments: 1 } }  // removes last
+)
+ 
+
+ Result: 
+
+ json
+"comments": ["Nice", "Helpful"]
+ 
+
+ 
+
+  🔧  6. `$pull` 
+
+ Definition: 
+Removes  all elements  that match a specified condition.
+
+ Syntax: 
+
+ js
+{ $pull: { arrayField: value or condition } }
+ 
+
+  📘 Example
+
+ Collection (`users`): 
+
+ json
+{ "username": "jane", "tags": ["active", "inactive", "banned"] }
+ 
+
+ Update: 
+
+ js
+db.users.updateOne(
+  { username: "jane" },
+  { $pull: { tags: "inactive" } }
+)
+ 
+
+ Result: 
+
+ json
+"tags": ["active", "banned"]
+ 
+
+ 
+
+  🔧  7. `$push` 
+
+ Definition: 
+Adds an element to the end of an array.
+
+ Syntax: 
+
+ js
+{ $push: { arrayField: value } }
+ 
+
+  📘 Example
+
+ Collection (`events`): 
+
+ json
+{ "name": "Meetup", "attendees": ["alice@example.com"] }
+ 
+
+ Update: 
+
+ js
+db.events.updateOne(
+  { name: "Meetup" },
+  { $push: { attendees: "bob@example.com" } }
+)
+ 
+
+ Result: 
+
+ json
+"attendees": ["alice@example.com", "bob@example.com"]
+ 
+
+ 
+
+  🔧  8. `$pullAll` 
+
+ Definition: 
+Removes  all matching values  from an array.
+
+ Syntax: 
+
+ js
+{ $pullAll: { arrayField: [value1, value2, ...] } }
+ 
+
+  📘 Example
+
+ Collection (`users`): 
+
+ json
+{ "tags": ["new", "inactive", "spam", "banned"] }
+ 
+
+ Update: 
+
+ js
+db.users.updateOne(
+  { },
+  { $pullAll: { tags: ["spam", "banned"] } }
+)
+ 
+
+ Result: 
+
+ json
+"tags": ["new", "inactive"]
+ 
+
+ 
+
+  🔧  9. `$each` 
+
+ Definition: 
+Used with `$push` or `$addToSet` to insert  multiple values .
+
+ Syntax: 
+
+ js
+{ $push: { arrayField: { $each: [value1, value2] } } }
+ 
+
+  📘 Example
+
+ Collection (`users`): 
+
+ json
+{ "username": "emma", "tags": ["user"] }
+ 
+
+ Update: 
+
+ js
+db.users.updateOne(
+  { username: "emma" },
+  { $addToSet: { tags: { $each: ["admin", "editor"] } } }
+)
+ 
+
+ Result: 
+
+ json
+"tags": ["user", "admin", "editor"]
+ 
+
+ 
+
+  🔧  10. `$position` 
+
+ Definition: 
+Used with `$push` to insert a value at a  specific index  in an array.
+
+ Syntax: 
+
+ js
+{ $push: { arrayField: { $each: [val], $position: index } } }
+ 
+
+  📘 Example
+
+ Collection (`users`): 
+
+ json
+{ "tags": ["user", "guest"] }
+ 
+
+ Update: 
+
+ js
+db.users.updateOne(
+  {},
+  { $push: { tags: { $each: ["admin"], $position: 1 } } }
+)
+ 
+
+ Result: 
+
+ json
+"tags": ["user", "admin", "guest"]
+ 
+
+ 
+
+  🔧  11. `$slice` 
+
+ Definition: 
+Used with `$push` to limit array size after update.
+
+ Syntax: 
+
+ js
+{ $push: { arrayField: { $each: [...], $slice: number } } }
+ 
+
+  📘 Example
+
+ Collection (`newsletters`): 
+
+ json
+{ "subscribers": ["a", "b", "c"] }
+ 
+
+ Update: 
+
+ js
+db.newsletters.updateOne(
+  {},
+  { $push: { subscribers: { $each: ["d", "e", "f"], $slice: -4 } } }
+)
+ 
+
+ Result: 
+
+ json
+"subscribers": ["c", "d", "e", "f"]
+ 
+
+
