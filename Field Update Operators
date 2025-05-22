@@ -1,0 +1,284 @@
+
+
+  🔧 1. `$currentDate`
+
+   ✅ Definition:
+
+Sets the value of a field to the current date or timestamp.
+
+   📘 Collection: `logs`
+
+ Before: 
+
+ json
+{ "_id": 1, "event": "login" }
+ 
+
+ Update: 
+
+ js
+db.logs.updateOne(
+  { _id: 1 },
+  { $currentDate: { lastModified: true } }
+)
+ 
+
+ After: 
+
+ json
+{ "_id": 1, "event": "login", "lastModified": ISODate("2025-05-22T12:00:00Z") }
+ 
+
+ 
+
+  🔧 2. `$inc`
+
+   ✅ Definition:
+
+Increments the numeric value of a field by a specified amount.
+
+   📘 Collection: `accounts`
+
+ Before: 
+
+ json
+{ "_id": 1, "username": "john", "balance": 100 }
+ 
+
+ Update: 
+
+ js
+db.accounts.updateOne(
+  { _id: 1 },
+  { $inc: { balance: 50 } }
+)
+ 
+
+ After: 
+
+ json
+{ "_id": 1, "username": "john", "balance": 150 }
+ 
+
+ 
+
+  🔧 3. `$min`
+
+   ✅ Definition:
+
+Updates the field  only if  the specified value is  less  than the existing field value.
+
+   📘 Collection: `scores`
+
+ Before: 
+
+ json
+{ "_id": 1, "student": "Alice", "highScore": 95 }
+ 
+
+ Update: 
+
+ js
+db.scores.updateOne(
+  { _id: 1 },
+  { $min: { highScore: 90 } }
+)
+ 
+
+ After: 
+
+ json
+{ "_id": 1, "student": "Alice", "highScore": 90 }
+ 
+
+ 
+
+  🔧 4. `$max`
+
+   ✅ Definition:
+
+Updates the field  only if  the specified value is  greater  than the existing field value.
+
+   📘 Collection: `scores`
+
+ Before: 
+
+ json
+{ "_id": 2, "student": "Bob", "highScore": 85 }
+ 
+
+ Update: 
+
+ js
+db.scores.updateOne(
+  { _id": 2 },
+  { $max: { highScore: 98 } }
+)
+ 
+
+ After: 
+
+ json
+{ "_id": 2, "student": "Bob", "highScore": 98 }
+ 
+
+ 
+
+  🔧 5. `$mul`
+
+   ✅ Definition:
+
+Multiplies the value of the field by a given number.
+
+   📘 Collection: `products`
+
+ Before: 
+
+ json
+{ "_id": 1, "name": "Shoes", "price": 100 }
+ 
+
+ Update: 
+
+ js
+db.products.updateOne(
+  { _id: 1 },
+  { $mul: { price: 1.2 } }
+)
+ 
+
+ After: 
+
+ json
+{ "_id": 1, "name": "Shoes", "price": 120 }
+ 
+
+ 
+
+  🔧 6. `$rename`
+
+   ✅ Definition:
+
+Renames a field.
+
+   📘 Collection: `users`
+
+ Before: 
+
+ json
+{ "_id": 1, "fname": "John", "lname": "Smith" }
+ 
+
+ Update: 
+
+ js
+db.users.updateOne(
+  { _id: 1 },
+  { $rename: { "fname": "firstName", "lname": "lastName" } }
+)
+ 
+
+ After: 
+
+ json
+{ "_id": 1, "firstName": "John", "lastName": "Smith" }
+ 
+
+ 
+
+  🔧 7. `$set`
+
+   ✅ Definition:
+
+Sets a field to a specified value. Creates the field if it doesn't exist.
+
+   📘 Collection: `profiles`
+
+ Before: 
+
+ json
+{ "_id": 1, "username": "alice" }
+ 
+
+ Update: 
+
+ js
+db.profiles.updateOne(
+  { _id: 1 },
+  { $set: { role: "admin", status: "active" } }
+)
+ 
+
+ After: 
+
+ json
+{ "_id": 1, "username": "alice", "role": "admin", "status": "active" }
+ 
+
+ 
+
+  🔧 8. `$setOnInsert`
+
+   ✅ Definition:
+
+Sets a field  only if the document is inserted  (via `upsert`).
+
+   📘 Collection: `settings`
+
+ Upsert Operation: 
+
+ js
+db.settings.updateOne(
+  { _id: 2 },
+  {
+    $set: { theme: "dark" },
+    $setOnInsert: { createdAt: new Date() }
+  },
+  { upsert: true }
+)
+ 
+
+ If inserted: 
+
+ json
+{
+  "_id": 2,
+  "theme": "dark",
+  "createdAt": ISODate("2025-05-22T12:00:00Z")
+}
+ 
+
+ If updated:  `createdAt` is  not added or changed .
+
+ 
+
+  🔧 9. `$unset`
+
+   ✅ Definition:
+
+Removes a field from the document.
+
+   📘 Collection: `users`
+
+ Before: 
+
+ json
+{ "_id": 1, "username": "alice", "tempCode": "ABC123" }
+ 
+
+ Update: 
+
+ js
+db.users.updateOne(
+  { _id: 1 },
+  { $unset: { tempCode: "" } }
+)
+ 
+
+ After: 
+
+ json
+{ "_id": 1, "username": "alice" }
+ 
+
+ 
